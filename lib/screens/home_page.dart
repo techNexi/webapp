@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               preferredSize: Size(screenSize.width, 1000),
               child: TopBarContents(_opacity),
             ),
-      drawer: webappDrawer(),
+      drawer: WebappDrawer(),
       body: WebScrollbar(
         color: Colors.blueGrey,
         backgroundColor: Colors.blueGrey.withOpacity(0.3),
@@ -92,18 +92,25 @@ class _HomePageState extends State<HomePage> {
               Stack(
                 children: [
                   Container(
+                    color: Colors.black,
                     child: SizedBox(
                       height: screenSize.height * 0.45,
                       width: screenSize.width,
-                      child: Image.asset(
-                        'assets/images/cover.jpg',
-                        fit: BoxFit.cover,
-                      ),
+                      child: Theme.of(context).brightness == Brightness.dark
+                          ? Image.asset(
+                              'assets/images/bg-dark.jpg',
+                              fit: BoxFit.cover,
+                            )
+                          : Image.asset(
+                              'assets/images/bg-light.jpg',
+                              fit: BoxFit.cover,
+                            ),
                     ),
                   ),
                   Column(
                     children: [
-                      FloatingQuickAccessBar(screenSize: screenSize),
+                      SizedBox(height: screenSize.height / 04),
+                      //  FloatingQuickAccessBar(screenSize: screenSize),
                       Container(
                         child: Column(
                           children: [

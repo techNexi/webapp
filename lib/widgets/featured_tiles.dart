@@ -10,12 +10,16 @@ class FeaturedTiles extends StatelessWidget {
   final Size screenSize;
 
   final List<String> assets = [
-    'assets/images/trekking.jpg',
-    'assets/images/animals.jpg',
-    'assets/images/photography.jpeg',
+    'assets/images/3.png',
+    'assets/images/1.png',
+    'assets/images/4.png',
   ];
 
-  final List<String> title = ['Trekking', 'Animals', 'Photography'];
+  final List<String> title = [
+    'DEVELOP',
+    'KNOWLEDGE',
+    'SERVICE',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +56,9 @@ class FeaturedTiles extends StatelessWidget {
                               child: Text(
                                 title[pageIndex],
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.bold,
                                   color: Theme.of(context)
                                       .primaryTextTheme
                                       .subtitle1
@@ -102,9 +106,9 @@ class FeaturedTiles extends StatelessWidget {
                         child: Text(
                           title[pageIndex],
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
                             fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold,
                             color: Theme.of(context)
                                 .primaryTextTheme
                                 .subtitle1

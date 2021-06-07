@@ -40,16 +40,8 @@ class _TopBarContentsState extends State<TopBarContents> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'webapp',
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
-                ),
-              ),
+              Image.asset("assets/images/logo.png",
+                  width: screenSize.width / 5),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +60,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Discover',
+                            'Blog',
                             style: TextStyle(
                               color: _isHovering[0]
                                   ? Colors.blue[200]
@@ -104,7 +96,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Contact Us',
+                            'Let"s Talk Business',
                             style: TextStyle(
                               color: _isHovering[1]
                                   ? Colors.blue[200]

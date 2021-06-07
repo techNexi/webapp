@@ -21,18 +21,21 @@ class BottomBar extends StatelessWidget {
                       s1: 'Contact Us',
                       s2: 'About Us',
                       s3: 'Careers',
+                      s4: 'Courses',
                     ),
                     BottomBarColumn(
                       heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
-                      s3: 'FAQ',
+                      s1: 'FAQ',
+                      s2: 'Customer Support',
+                      s3: '',
+                      s4: '',
                     ),
                     BottomBarColumn(
                       heading: 'SOCIAL',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
+                      s4: 'Instagram',
                     ),
                   ],
                 ),
@@ -44,12 +47,12 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 InfoText(
                   type: 'Email',
-                  text: 'webapp@gmail.com',
+                  text: 'technexi.india@gmail.com',
                 ),
                 SizedBox(height: 5),
                 InfoText(
                   type: 'Address',
-                  text: '128, Trymore Road, Delft, MN - 56124',
+                  text: 'B-10, Bengaluru - 560017',
                 ),
                 SizedBox(height: 20),
                 Container(
@@ -59,7 +62,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | webapp',
+                  'Copyright © 2021 | TechNEXI',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
@@ -78,18 +81,21 @@ class BottomBar extends StatelessWidget {
                       s1: 'Contact Us',
                       s2: 'About Us',
                       s3: 'Careers',
+                      s4: 'Courses',
                     ),
                     BottomBarColumn(
                       heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
-                      s3: 'FAQ',
+                      s1: 'FAQ',
+                      s2: 'Customer Support',
+                      s3: '',
+                      s4: '',
                     ),
                     BottomBarColumn(
                       heading: 'SOCIAL',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
+                      s4: 'Instagram',
                     ),
                     Container(
                       color: Colors.blueGrey,
@@ -101,13 +107,13 @@ class BottomBar extends StatelessWidget {
                       children: [
                         InfoText(
                           type: 'Email',
-                          text: 'webapp@gmail.com',
+                          text: 'technexi.india@gmail.com',
                         ),
                         SizedBox(height: 5),
                         InfoText(
                           type: 'Address',
-                          text: '128, Trymore Road, Delft, MN - 56124',
-                        )
+                          text: 'B-10, Bengaluru - 560017',
+                        ),
                       ],
                     ),
                   ],
@@ -122,7 +128,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | webapp',
+                  'Copyright © 2021 | TechNEXI',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,

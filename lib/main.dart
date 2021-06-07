@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Explore',
+      title: 'TechNEXI',
       theme: lightThemeData,
       darkTheme: darkThemeData,
       debugShowCheckedModeBanner: false,

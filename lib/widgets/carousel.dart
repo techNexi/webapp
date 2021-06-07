@@ -18,21 +18,23 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
   int _current = 0;
 
   final List<String> images = [
-    'assets/images/asia.jpg',
-    'assets/images/africa.jpg',
-    'assets/images/europe.jpg',
-    'assets/images/south_america.jpg',
-    'assets/images/australia.jpg',
-    'assets/images/antarctica.jpg',
+    'assets/images/hello.jpg',
+    'assets/images/services.jpg',
+    'assets/images/web.jpg',
+    'assets/images/custom.jpg',
+    'assets/images/flutter.jpg',
+    'assets/images/arduino.jpg',
+    'assets/images/mobile.jpg',
   ];
 
-  final List<String> places = [
-    'ASIA',
-    'AFRICA',
-    'EUROPE',
-    'SOUTH AMERICA',
-    'AUSTRALIA',
-    'ANTARCTICA',
+  final List<String> services = [
+    'APP DEVELOPMENT',
+    'SYSTEM SERVICES',
+    'WEB DEVELOPMENT',
+    'PC CUSTOMIZATION',
+    'FLUTTER DEVELOPMENT',
+    'PROJECTS & COURSES',
+    'SMARTPHONE SERVICES',
   ];
 
   List<Widget> generateImageTiles(screenSize) {
@@ -42,6 +44,7 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
             borderRadius: BorderRadius.circular(8.0),
             child: Image.asset(
               element,
+              colorBlendMode: BlendMode.darken,
               fit: BoxFit.cover,
             ),
           ),
@@ -83,11 +86,11 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
           aspectRatio: 18 / 8,
           child: Center(
             child: Text(
-              places[_current],
+              services[_current],
               style: TextStyle(
-                letterSpacing: 8,
+                letterSpacing: 6,
                 fontFamily: 'Electrolize',
-                fontSize: screenSize.width / 25,
+                fontSize: screenSize.width / 30,
                 color: Colors.white,
               ),
             ),
@@ -116,7 +119,7 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              for (int i = 0; i < places.length; i++)
+                              for (int i = 0; i < services.length; i++)
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -135,11 +138,16 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                                       },
                                       child: Padding(
                                         padding: EdgeInsets.only(
+                                            left: screenSize.width / 200,
+                                            right: screenSize.width / 200,
                                             top: screenSize.height / 80,
                                             bottom: screenSize.height / 90),
                                         child: Text(
-                                          places[i],
+                                          services[i],
                                           style: TextStyle(
+                                            fontSize: (screenSize.height *
+                                                    screenSize.width) /
+                                                90000,
                                             color: _isHovering[i]
                                                 ? Theme.of(context)
                                                     .primaryTextTheme

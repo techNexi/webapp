@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
 
-class webappDrawer extends StatefulWidget {
-  const webappDrawer({
+class WebappDrawer extends StatefulWidget {
+  const WebappDrawer({
     Key key,
   }) : super(key: key);
 
   @override
-  _webappDrawerState createState() => _webappDrawerState();
+  WebappDrawerState createState() => WebappDrawerState();
 }
 
-class _webappDrawerState extends State<webappDrawer> {
+class WebappDrawerState extends State<WebappDrawer> {
   bool _isProcessing = false;
   @override
   Widget build(BuildContext context) {

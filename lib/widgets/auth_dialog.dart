@@ -83,7 +83,7 @@ class _AuthDialogState extends State<AuthDialog> {
               children: [
                 Center(
                   child: Text(
-                    'EXPLORE',
+                    'TechNEXI',
                     style: TextStyle(
                       color: Theme.of(context).textTheme.headline1.color,
                       fontSize: 24,

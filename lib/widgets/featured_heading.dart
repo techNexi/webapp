@@ -13,7 +13,7 @@ class FeaturedHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: screenSize.height * 0.06,
+        top: screenSize.height * 0.02,
         left: screenSize.width / 15,
         right: screenSize.width / 15,
       ),
@@ -24,19 +24,20 @@ class FeaturedHeading extends StatelessWidget {
               children: [
                 Row(),
                 Text(
-                  'Featured',
+                  'SERVICE BEYOND COMPROMISE',
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: 24,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 5),
-                Text(
-                  'Unique wildlife tours & destinations',
-                  textAlign: TextAlign.end,
+                SizedBox(height: 15),
+                /*  Text(
+                  'FEATURES',
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).primaryTextTheme.subtitle1,
-                ),
+                ),*/
                 SizedBox(height: 10),
               ],
             )
@@ -45,20 +46,21 @@ class FeaturedHeading extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'Featured',
+                  'SERVICE BEYOND COMPROMISE',
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: 40,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Expanded(
+                /* Expanded(
                   child: Text(
-                    'Unique wildlife tours & destinations',
-                    textAlign: TextAlign.end,
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                    'FEATURES',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).primaryTextTheme.headline1,
                   ),
-                ),
+                ),*/
               ],
             ),
     );
