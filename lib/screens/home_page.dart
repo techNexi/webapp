@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
               ),
             )
           : PreferredSize(
-              preferredSize: Size(screenSize.width, 1000),
+              preferredSize: Size(screenSize.width, 600),
               child: TopBarContents(_opacity),
             ),
       drawer: WebappDrawer(),
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     color: Colors.black,
                     child: SizedBox(
-                      height: screenSize.height * 0.45,
+                      height: screenSize.height * 0.9,
                       width: screenSize.width,
                       child: Theme.of(context).brightness == Brightness.dark
                           ? Image.asset(
@@ -109,13 +109,50 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Column(
                     children: [
-                      SizedBox(height: screenSize.height / 04),
+                      SizedBox(height: screenSize.height / 3.8),
+                      FeaturedHeading(
+                        screenSize: screenSize,
+                      ),
+                      SizedBox(height: screenSize.height / 3.7),
                       //  FloatingQuickAccessBar(screenSize: screenSize),
+
                       Container(
                         child: Column(
                           children: [
-                            FeaturedHeading(
-                              screenSize: screenSize,
+                            Container(
+                              child: Text(
+                                'ABOUT US',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 20
+                                          : 32,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: screenSize.height / 180),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 50.0, right: 50, top: 15),
+                              child: Text(
+                                'Our team, at TechNEXI are well-verse of expertise in a variety of tech development and services.\nWe provide basic to advance development and services in software and hardware domains such as Web development, app development, Website design,  Flutter development,  System services, Mobile Services, Hardware customization, Project development, and so on. We provide your requirements at affordable range',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Theme.of(context)
+                                      .primaryTextTheme
+                                      .subtitle1
+                                      .color,
+                                  fontSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 12
+                                          : 22,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
                             FeaturedTiles(screenSize: screenSize)
                           ],

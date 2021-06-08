@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:webapp/screens/home_page.dart';
 import 'package:webapp/utils/authentication.dart';
@@ -44,7 +46,8 @@ class _TopBarContentsState extends State<TopBarContents> {
                   width: screenSize.width / 5),
               Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     SizedBox(width: screenSize.width / 8),
                     InkWell(
@@ -62,9 +65,14 @@ class _TopBarContentsState extends State<TopBarContents> {
                           Text(
                             'Blog',
                             style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                               color: _isHovering[0]
                                   ? Colors.blue[200]
-                                  : Colors.white,
+                                  : Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Colors.black,
                             ),
                           ),
                           SizedBox(height: 5),
@@ -96,11 +104,16 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Let"s Talk Business',
+                            "Let's Talk Business",
                             style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                               color: _isHovering[1]
                                   ? Colors.blue[200]
-                                  : Colors.white,
+                                  : Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Colors.black,
                             ),
                           ),
                           SizedBox(height: 5),
@@ -118,22 +131,25 @@ class _TopBarContentsState extends State<TopBarContents> {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      width: screenSize.width / 50,
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.brightness_6),
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
+                      onPressed: () {
+                        EasyDynamicTheme.of(context).changeTheme();
+                      },
+                    ),
                   ],
                 ),
               ),
-              IconButton(
-                icon: Icon(Icons.brightness_6),
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                color: Colors.white,
-                onPressed: () {
-                  EasyDynamicTheme.of(context).changeTheme();
-                },
-              ),
-              SizedBox(
-                width: screenSize.width / 50,
-              ),
-              InkWell(
+
+              /* InkWell(
                 onHover: (value) {
                   setState(() {
                     value ? _isHovering[3] = true : _isHovering[3] = false;
@@ -224,7 +240,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           )
                         ],
                       ),
-              ),
+              ),*/
             ],
           ),
         ),

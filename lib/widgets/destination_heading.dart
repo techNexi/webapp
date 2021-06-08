@@ -40,7 +40,7 @@ class DestinationHeading extends StatelessWidget {
               'OUR SERVICES',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 36,
+                fontSize: 32,
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),
