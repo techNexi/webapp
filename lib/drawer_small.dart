@@ -1,8 +1,5 @@
-import 'package:webapp/screens/home_page.dart';
-import 'package:webapp/utils/authentication.dart';
+import 'package:webapp/home_page.dart';
 import 'package:flutter/material.dart';
-
-import 'auth_dialog.dart';
 
 class WebappDrawer extends StatefulWidget {
   const WebappDrawer({
@@ -26,7 +23,7 @@ class WebappDrawerState extends State<WebappDrawer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              userEmail == null
+              /*   userEmail == null
                   ? Container(
                       width: double.maxFinite,
                       child: TextButton(
@@ -144,7 +141,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                       ),
                     )
                   : Container(),
-              userEmail != null ? SizedBox(height: 20) : Container(),
+              userEmail != null ? SizedBox(height: 20) : Container(),*/
               InkWell(
                 onTap: () {},
                 child: Text(
@@ -170,7 +167,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    'Copyright © 2020 | webapp',
+                    'Copyright © 2021 | TechNexi',
                     style: TextStyle(
                       color: Colors.blueGrey[300],
                       fontSize: 14,

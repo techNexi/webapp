@@ -1,6 +1,4 @@
-import 'package:webapp/widgets/bottom_bar_column.dart';
-import 'package:webapp/widgets/info_text.dart';
-import 'package:webapp/widgets/responsive.dart';
+import 'package:webapp/responsive.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -136,6 +134,110 @@ class BottomBar extends StatelessWidget {
                 ),
               ],
             ),
+    );
+  }
+}
+
+class BottomBarColumn extends StatelessWidget {
+  final String heading;
+  final String s1;
+  final String s2;
+  final String s3;
+  final String s4;
+
+  BottomBarColumn({
+    @required this.heading,
+    @required this.s1,
+    this.s2,
+    this.s3,
+    this.s4,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            heading,
+            style: TextStyle(
+              color: Colors.blueGrey[300],
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            s1,
+            style: TextStyle(
+              color: Colors.blueGrey[100],
+              fontSize: 14,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            s2,
+            style: TextStyle(
+              color: Colors.blueGrey[100],
+              fontSize: 14,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            s3,
+            style: TextStyle(
+              color: Colors.blueGrey[100],
+              fontSize: 14,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            s4,
+            style: TextStyle(
+              color: Colors.blueGrey[100],
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class InfoText extends StatelessWidget {
+  final String type;
+  final String text;
+
+  InfoText({this.type, this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '$type: ',
+          style: TextStyle(
+            color: Colors.blueGrey[300],
+            fontSize: 16,
+          ),
+        ),
+        Flexible(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.blueGrey[100],
+              fontSize: 16,
+            ),
+          ),
+        )
+      ],
     );
   }
 }

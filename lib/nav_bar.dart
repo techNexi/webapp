@@ -1,9 +1,5 @@
 import 'dart:ui';
-
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:webapp/screens/home_page.dart';
-import 'package:webapp/utils/authentication.dart';
-import 'package:webapp/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
 class TopBarContents extends StatefulWidget {

@@ -1,14 +1,27 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:webapp/utils/authentication.dart';
-import 'package:webapp/utils/theme_data.dart';
+import 'package:webapp/theme.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/home_page.dart';
+import 'package:get/get.dart';
+
+import 'home_page.dart';
+
+bool isMorning() {
+  var hour = DateTime.now().hour;
+  if (hour < 12) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 void main() {
   runApp(
-    EasyDynamicThemeWidget(
-      child: MyApp(),
+    GetMaterialApp(
+      home: EasyDynamicThemeWidget(
+        initialThemeMode: isMorning() ? ThemeMode.light : ThemeMode.dark,
+        child: MyApp(),
+      ),
     ),
   );
 }
@@ -19,15 +32,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Future getUserInfo() async {
+  /* Future getUserInfo() async {
     await getUser();
     setState(() {});
     print(uid);
-  }
+  }*/
 
   @override
   void initState() {
-    getUserInfo();
+    // getUserInfo();
     super.initState();
   }
 
