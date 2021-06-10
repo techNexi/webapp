@@ -76,7 +76,7 @@ class _ServicesItemState extends State<ServicesItem> {
   ];
 
   final List<String> services = [
-    'App Developmen',
+    'App Development',
     'System Services',
     'Web Development',
     'PC Customization',

@@ -181,7 +181,9 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(height: screenSize.height / 180),
                             Padding(
                               padding: EdgeInsets.only(
-                                  left: 50.0, right: 50, top: 15),
+                                  left: screenSize.width * 0.115,
+                                  right: screenSize.width * 0.115,
+                                  top: 15),
                               child: Text(
                                 // Our team, at TechNEXI are well-verse of expertise in a variety of tech development and services.\n
                                 'We provide basic to advance development and services in software and hardware domains such as Web development, App development, Website design, Flutter development, System services, Mobile Services, Hardware customization and Project development, and so on. We provide your requirements at affordable range.',
@@ -194,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                   fontSize:
                                       ResponsiveWidget.isSmallScreen(context)
                                           ? 14
-                                          : 16,
+                                          : 17,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w400,
                                 ),

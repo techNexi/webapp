@@ -17,7 +17,7 @@ var lightThemeData = ThemeData(
     ),
     headline1: TextStyle(color: Colors.blueGrey[800]),
   ),
-  bottomAppBarColor: Colors.blueGrey[400],
+  bottomAppBarColor: Colors.white, //Color(0xFF8affde),
   iconTheme: IconThemeData(color: Colors.blueGrey),
   brightness: Brightness.light,
 );
@@ -45,3 +45,6 @@ var darkThemeData = ThemeData(
   iconTheme: IconThemeData(color: Colors.blueGrey[200].withOpacity(0.4)),
   brightness: Brightness.dark,
 );
+
+const String fontfamily = 'Montserrat';
+const String fontFamily2 = "Walkway";
