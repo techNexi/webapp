@@ -38,10 +38,19 @@ class _ServicesDescState extends State<ServicesDesc> {
       'App Development':
           'TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price.'
     },
-    {'System Services': 'assets/images/services.jpg'},
-    {'Web Development': 'assets/images/web.jpg'},
-    {'PC Customization': 'assets/images/custom.jpg'},
-    {'Flutter Development': 'assets/images/flutter.jpg'},
+    {
+      'System Services':
+          'PC or laptop running any version needs frequent maintenance. Here at TechNEXI, We provide enhanced support services for your computer — for Windows and Mac. We perform both online and onfield services. Speak to a friendly technical expert today! No-cost consultation call. '
+    },
+    {
+      'Web Development':
+          'Smart solutions are the essence of Website Development. All our codes are hand coded by our expert developers. We develop User friendly Websites by adapting to the recent trends and create customs according to your requirements.'
+    },
+    {
+      'PC Customization':
+          'At TechNEXI, we understand the importance of building the perfect PC. To cater to that, we offer the most extensive range of components and specifications on the system build market. Our collection of custom PCs, gaming computers, and laptops are all customisable to suit your unique preferences, whilst maintaining an excellent level of value and quality, regardless of budget'
+    },
+    {'Flutter Development': ''},
     {'Projects & Courses': 'assets/images/arduino.jpg'},
     {'Smartphone Services': 'assets/images/mobile.jpg'},
   ];
