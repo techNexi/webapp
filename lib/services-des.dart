@@ -33,6 +33,16 @@ class _ServicesDescState extends State<ServicesDesc> {
     super.initState();
   }
 
+  final List<Map<String, String>> body = [
+    {'App Development': 'assets/images/hello.jpg'},
+    {'System Services': 'assets/images/services.jpg'},
+    {'Web Development': 'assets/images/web.jpg'},
+    {'PC Customization': 'assets/images/custom.jpg'},
+    {'Flutter Development': 'assets/images/flutter.jpg'},
+    {'Projects & Courses': 'assets/images/arduino.jpg'},
+    {'Smartphone Services': 'assets/images/mobile.jpg'},
+  ];
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -93,7 +103,7 @@ class _ServicesDescState extends State<ServicesDesc> {
               SizedBox(height: screenSize.height / 5),
               Padding(
                 padding: EdgeInsets.only(
-                  left: 10,
+                  left: 20,
                 ),
                 child: Text("${widget.title}",
                     textAlign: TextAlign.left,
@@ -110,7 +120,7 @@ class _ServicesDescState extends State<ServicesDesc> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 10, right: width * 0.1),
+                      padding: EdgeInsets.only(left: 20, right: width * 0.1),
                       child: Text(
                         "TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price. ",
                         style: TextStyle(
@@ -121,15 +131,15 @@ class _ServicesDescState extends State<ServicesDesc> {
                       ),
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          width: width / 3,
-                          child: Image.asset("assets/images/app-dev1.png")),
-                      SizedBox(height: height * 0.08),
-                    ],
-                  )
+                  // Column(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // children: [
+                  Container(
+                      width: width / 3,
+                      child: Image.asset("assets/images/app-dev1.png")),
+                  //  SizedBox(height: height * 0.08),
+                  //   ],
+                  //  )
                 ],
               ),
               Container(
