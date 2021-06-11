@@ -34,7 +34,10 @@ class _ServicesDescState extends State<ServicesDesc> {
   }
 
   final List<Map<String, String>> body = [
-    {'App Development': 'assets/images/hello.jpg'},
+    {
+      'App Development':
+          'TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price.'
+    },
     {'System Services': 'assets/images/services.jpg'},
     {'Web Development': 'assets/images/web.jpg'},
     {'PC Customization': 'assets/images/custom.jpg'},
