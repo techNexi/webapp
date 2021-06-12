@@ -62,7 +62,9 @@ class _HomePageState extends State<HomePage> {
               centerTitle: true,
               actions: [
                 IconButton(
-                  icon: Icon(Icons.brightness_6),
+                  icon: Theme.of(context).brightness == Brightness.light
+                      ? Icon(Icons.brightness_2_outlined)
+                      : Icon(Icons.brightness_6),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
