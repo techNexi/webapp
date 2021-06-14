@@ -110,37 +110,33 @@ class _ServicesPageState extends State<ServicesPage> {
           ],
         ),
         Container(
-            width: width,
-            height: height * 0.6,
-            color: servicesColor[widget.title],
-            child: Center(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                      width: width / 3, child: servicesImage2[widget.title]),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 10, right: width * 0.1),
-                      child: Text(
-                        "TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price. ",
-                        textAlign: TextAlign.end,
-                        style: TextStyle(
-                            fontFamily: fontfamily,
-                            fontSize: ResponsiveWidget.isSmallScreen(context)
-                                ? 14
-                                : width * 0.016),
-                      ),
+          width: width,
+          height: height * 0.6,
+          color: servicesColor[widget.title],
+          child: Center(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    width: width / 3, child: servicesImage2[widget.title]),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10, right: width * 0.1),
+                    child: Text(
+                      "TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price. ",
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                          fontFamily: fontfamily,
+                          fontSize: ResponsiveWidget.isSmallScreen(context)
+                              ? 14
+                              : width * 0.016),
                     ),
                   ),
-                ],
-              ),
-            )),
-        Container(
-          width: width,
-          height: height * 0.8,
-          color: Colors.white,
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );

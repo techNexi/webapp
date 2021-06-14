@@ -65,6 +65,35 @@ class _ServicesItemState extends State<ServicesItem> {
 
   int _current = 0;
 
+  routeToContent(BuildContext context, String service) {
+    switch (service) {
+      case "App Development":
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        break;
+      case "System Services":
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        break;
+      case "Web Development":
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        break;
+      case "PC Customizatio":
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        break;
+      case "Projects & Courses":
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        break;
+      case "Smartphone Services":
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        break;
+    }
+  }
+
   final List<String> images = [
     'assets/images/hello.jpg',
     'assets/images/services.jpg',
@@ -134,11 +163,7 @@ class _ServicesItemState extends State<ServicesItem> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) =>
-                            ServicesDesc(title: services[_current])));
+                routeToContent(context, services[_current]);
               },
               child: AspectRatio(
                 aspectRatio: 18 / 8,
@@ -196,11 +221,7 @@ class _ServicesItemState extends State<ServicesItem> {
                                       _controller.animateToPage(i);
                                       Future.delayed(
                                           Duration(milliseconds: 500), () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (_) => ServicesDesc(
-                                                    title: services[i])));
+                                        routeToContent(context, services[i]);
                                       });
                                     },
                                     child: Padding(
