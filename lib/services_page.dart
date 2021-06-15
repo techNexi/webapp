@@ -71,43 +71,37 @@ class _ServicesPageState extends State<ServicesPage> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: EdgeInsets.only(
             left: 20,
+            bottom: 45,
           ),
           child: Text("${widget.title}",
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
               style: TextStyle(
+                  letterSpacing: 2,
                   fontSize: ResponsiveWidget.isSmallScreen(context)
                       ? 40
-                      : width * 0.07,
+                      : width * 0.05,
                   fontFamily: fontFamily2,
                   fontWeight: FontWeight.bold)),
         ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 20, right: width * 0.1),
-                child: Text(
-                  servicesBody[widget.title],
-                  style: TextStyle(
-                      fontFamily: fontfamily,
-                      fontSize: ResponsiveWidget.isSmallScreen(context)
-                          ? 14
-                          : width * 0.016),
-                ),
-              ),
+        Padding(
+          padding: EdgeInsets.only(
+              left: width * 0.125, right: width * 0.125, top: 30, bottom: 40),
+          child: Center(
+            child: Text(
+              "System service is practice of keeping computer in good state of repair. PC or laptop running any version needs frequent maintenance and updating.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: fontFamily,
+                  fontSize: ResponsiveWidget.isSmallScreen(context)
+                      ? 14
+                      : width * 0.016),
             ),
-            Container(
-              width: width / 3,
-              child: servicesImage1[widget.title],
-            ),
-          ],
+          ),
         ),
         Container(
           width: width,
@@ -127,7 +121,7 @@ class _ServicesPageState extends State<ServicesPage> {
                       "TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price. ",
                       textAlign: TextAlign.end,
                       style: TextStyle(
-                          fontFamily: fontfamily,
+                          fontFamily: fontFamily,
                           fontSize: ResponsiveWidget.isSmallScreen(context)
                               ? 14
                               : width * 0.016),

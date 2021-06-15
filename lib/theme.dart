@@ -46,5 +46,5 @@ var darkThemeData = ThemeData(
   brightness: Brightness.dark,
 );
 
-const String fontfamily = 'Montserrat';
+const String fontFamily = 'Montserrat';
 const String fontFamily2 = "Walkway";

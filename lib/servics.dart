@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:webapp/services-des.dart';
+import 'package:webapp/services/system_service.dart';
 
 class ServicesHeading extends StatelessWidget {
   const ServicesHeading({
@@ -68,28 +69,28 @@ class _ServicesItemState extends State<ServicesItem> {
   routeToContent(BuildContext context, String service) {
     switch (service) {
       case "App Development":
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        //  Navigator.push(context,
+        //  MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
         break;
       case "System Services":
         Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+            MaterialPageRoute(builder: (_) => SysytemServices(title: service)));
         break;
       case "Web Development":
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        //   Navigator.push(context,
+        //     MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
         break;
       case "PC Customizatio":
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        //   Navigator.push(context,
+        //    MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
         break;
       case "Projects & Courses":
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        // Navigator.push(context,
+        //   MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
         break;
       case "Smartphone Services":
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+        //  Navigator.push(context,
+        //  MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
         break;
     }
   }
