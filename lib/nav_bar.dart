@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:webapp/home_page.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
@@ -38,8 +39,14 @@ class _TopBarContentsState extends State<TopBarContents> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset("assets/images/logo.png",
-                  width: screenSize.width / 5),
+              TextButton(
+                child: Image.asset("assets/images/logo.png",
+                    width: screenSize.width / 5),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                },
+              ),
               Expanded(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

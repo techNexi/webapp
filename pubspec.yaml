@@ -21,6 +21,9 @@ dev_dependencies:
   firebase_auth: ^1.0.1
   google_sign_in: ^5.0.1
   get: ^4.1.4
+  material_design_icons_flutter: ^4.0.5955
+
+
   
 
 flutter:
@@ -30,6 +33,7 @@ flutter:
     - assets/images/
     - assets/
     - assets/images/service/
+    - assets/images/service/system-service/
   
      
   fonts:
@@ -42,3 +46,7 @@ flutter:
     - family: Electrolize
       fonts:
         - asset: assets/fonts/Electrolize-Regular.ttf   
+
+        
+dependencies: 
+  whatsapp_unilink: ^2.0.0

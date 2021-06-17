@@ -7,6 +7,10 @@ import 'package:webapp/responsive.dart';
 import 'package:webapp/theme.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:webapp/web_scrollbar.dart';
+import 'package:webapp/misc/scrolling_text.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:whatsapp_unilink/whatsapp_unilink.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SysytemServices extends StatefulWidget {
   const SysytemServices({Key key, this.title}) : super(key: key);
@@ -32,6 +36,12 @@ class _SysytemServicesState extends State<SysytemServices> {
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -90,14 +100,27 @@ class _SysytemServicesState extends State<SysytemServices> {
           controller: _scrollController,
           // physics: ClampingScrollPhysics(),
           scrollDirection: Axis.vertical,
-          child: Padding(
-            padding: EdgeInsets.only(left: width * 0.03, right: width * 0.03),
+          child: Container(
+            /* color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.blueGrey[900]
+                : Colors.grey[300],*/
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  Theme.of(context).brightness == Brightness.dark
+                      ? "assets/images/service/system-service/bg-black.jpg"
+                      : "assets/images/service/system-service/bg-yellow.jpg",
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: screenSize.height / 6),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
@@ -126,6 +149,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                           "System service is practice of keeping computer in good state of repair. PC or laptop running any version needs frequent maintenance and updating.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
+                              fontWeight: FontWeight.bold,
                               fontFamily: fontFamily,
                               fontSize: ResponsiveWidget.isSmallScreen(context)
                                   ? 16
@@ -135,9 +159,12 @@ class _SysytemServicesState extends State<SysytemServices> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                          top: height * 0.09, bottom: height * 0.15),
+                          left: width * 0.03,
+                          right: width * 0.03,
+                          top: height * 0.09,
+                          bottom: height * 0.15),
                       child: PhysicalModel(
-                        color: Colors.white,
+                        color: Colors.transparent,
                         elevation: 25,
                         shadowColor:
                             Theme.of(context).brightness == Brightness.dark
@@ -146,7 +173,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.blue[100],
+                            color: Colors.white70,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           height: ResponsiveWidget.isSmallScreen(context)
@@ -170,6 +197,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                       "It is frustrating to have malfunctioning system when you need it most. Not to worry, at TechNEXI, we have qualified specialist capable of undertaking your PC’s repair in a professional and efficient manner with assured guarantee for any kind of laptop or PC. ",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
+                                          fontWeight: FontWeight.w700,
                                           color: Colors.black87,
                                           fontFamily: fontFamily,
                                           fontSize:
@@ -190,7 +218,9 @@ class _SysytemServicesState extends State<SysytemServices> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 10, top: height * 0.07, bottom: height * 0.15),
+                      left: width * 0.03,
+                      top: height * 0.07,
+                      bottom: height * 0.08),
                   child: PhysicalModel(
                     color: Colors.transparent,
                     elevation: 25,
@@ -200,7 +230,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue[100],
+                        color: Colors.white70,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       width: width * 0.7,
@@ -233,6 +263,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -247,6 +278,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -260,6 +292,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -273,6 +306,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -286,6 +320,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -299,6 +334,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -312,6 +348,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -325,6 +362,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -338,6 +376,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 style: TextStyle(
                                     fontFamily: fontFamily,
                                     fontWeight: FontWeight.w600,
+                                    color: Colors.black,
                                     fontSize:
                                         ResponsiveWidget.isSmallScreen(context)
                                             ? 14
@@ -349,7 +388,109 @@ class _SysytemServicesState extends State<SysytemServices> {
                       ),
                     ),
                   ),
-                )
+                ),
+                Stack(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  children: [
+                    Container(
+                      color: Colors.transparent,
+                      width: width,
+                      height: height * 0.15,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: height * 0.08),
+                        child: Container(
+                          color: Colors.white30,
+                          child: ScrollingText(
+                            text:
+                                "Get Expertised System Services from 249/- onwards.      For queries call on +91 9353771544        ",
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                                fontSize:
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? 15
+                                        : width * 0.019),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: height * 0.01),
+                      child: Container(
+                        color: Colors.black87,
+                        width: ResponsiveWidget.isSmallScreen(context)
+                            ? 50
+                            : width * 0.08,
+                        child: Padding(
+                          padding: EdgeInsets.all(width * 0.007),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              IconButton(
+                                  iconSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 30
+                                          : width * 0.03,
+                                  icon: Icon(Icons.phone),
+                                  onPressed: () {
+                                    print('Using the sword');
+                                  }),
+                              SizedBox(
+                                height: height * 0.1,
+                              ),
+                              IconButton(
+                                  iconSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 30
+                                          : width * 0.03,
+                                  icon: Icon(Icons.email),
+                                  onPressed: () {
+                                    print('Using the sword');
+                                  }),
+                              SizedBox(
+                                height: height * 0.1,
+                              ),
+                              IconButton(
+                                iconSize:
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? 30
+                                        : width * 0.03,
+                                // Use the MdiIcons class for the IconData
+                                icon: new Icon(MdiIcons.whatsapp),
+                                onPressed: () async {
+                                  final link = WhatsAppUnilink(
+                                    phoneNumber: "+919353771544",
+                                    text:
+                                        "Hello TechNEXI! I want to service my PC.",
+                                  );
+                                  await canLaunch("$link")
+                                      ? launch('$link')
+                                      : Scaffold.of(context).showSnackBar(
+                                          SnackBar(
+                                            elevation: 10,
+                                            backgroundColor: Colors.red[50],
+                                            behavior: SnackBarBehavior.floating,
+                                            content: Text(
+                                              'Unable to launch whatsapp, Please write to help@pragmagiclabs.com',
+                                              style: TextStyle(
+                                                  fontSize: 18.0,
+                                                  color: Colors.red,
+                                                  fontWeight: FontWeight.w400,
+                                                  fontFamily: fontFamily),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        );
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
