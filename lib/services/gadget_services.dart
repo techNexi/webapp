@@ -35,6 +35,35 @@ class _MobileServicesState extends State<MobileServices> {
     "iphone 7s plus"
   ];
 
+  List<String> brand = [
+    'APPLE',
+    "SAMSUNG",
+    "ONEPLUS",
+    "XIAOMI",
+    "OPPO",
+    "VIVO",
+    "MOTOROLA",
+    "ASUS",
+    "NEXUS",
+    "NOKIA",
+    "LG",
+    "LENOVO",
+    "HUAWEI",
+    "SONY",
+    "SAMSUNG",
+    "HTC",
+    "OPPO",
+    "REAL ME",
+    "PANASONIC",
+    "GIONEE",
+    "LYF",
+    "COOLPAD",
+    "IQOO",
+    "SWIPE",
+    "LeECO",
+    "OTHERS"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container();
