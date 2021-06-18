@@ -1,4 +1,6 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:webapp/services/custom_pc.dart';
+import 'package:webapp/services/system_service.dart';
 import 'package:webapp/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,7 @@ bool isMorning() {
 void main() {
   runApp(
     GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       home: EasyDynamicThemeWidget(
         initialThemeMode: isMorning() ? ThemeMode.light : ThemeMode.dark,
         child: MyApp(),
@@ -52,7 +55,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: darkThemeData,
       debugShowCheckedModeBanner: false,
       themeMode: EasyDynamicTheme.of(context).themeMode,
-      home: HomePage(),
+      home: HomePage(), //SysytemServices(), //PcCustom() //
     );
   }
 }

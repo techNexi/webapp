@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:webapp/services-des.dart';
+import 'package:webapp/services/custom_pc.dart';
 import 'package:webapp/services/system_service.dart';
 
 class ServicesHeading extends StatelessWidget {
@@ -80,9 +81,8 @@ class _ServicesItemState extends State<ServicesItem> {
         //   Navigator.push(context,
         //     MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
         break;
-      case "PC Customizatio":
-        //   Navigator.push(context,
-        //    MaterialPageRoute(builder: (_) => ServicesDesc(title: service)));
+      case "PC Customization":
+        Navigator.push(context, MaterialPageRoute(builder: (_) => PcCustom()));
         break;
       case "Projects & Courses":
         // Navigator.push(context,

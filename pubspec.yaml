@@ -50,3 +50,4 @@ flutter:
         
 dependencies: 
   whatsapp_unilink: ^2.0.0
+  mailto: ^2.0.0

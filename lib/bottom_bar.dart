@@ -89,7 +89,7 @@ class BottomBar extends StatelessWidget {
                       s4: '',
                     ),
                     BottomBarColumn(
-                      heading: 'SOCIAL',
+                      heading: 'FIND US ON',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
@@ -163,7 +163,7 @@ class BottomBarColumn extends StatelessWidget {
           Text(
             heading,
             style: TextStyle(
-              color: Colors.blueGrey[300],
+              color: Colors.blueGrey[900],
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),
@@ -174,7 +174,7 @@ class BottomBarColumn extends StatelessWidget {
           Text(
             s1,
             style: TextStyle(
-              color: Colors.blueGrey[100],
+              color: Colors.blueGrey[700],
               fontSize: 14,
             ),
           ),
@@ -182,7 +182,7 @@ class BottomBarColumn extends StatelessWidget {
           Text(
             s2,
             style: TextStyle(
-              color: Colors.blueGrey[100],
+              color: Colors.blueGrey[700],
               fontSize: 14,
             ),
           ),
@@ -190,7 +190,7 @@ class BottomBarColumn extends StatelessWidget {
           Text(
             s3,
             style: TextStyle(
-              color: Colors.blueGrey[100],
+              color: Colors.blueGrey[700],
               fontSize: 14,
             ),
           ),
@@ -198,7 +198,7 @@ class BottomBarColumn extends StatelessWidget {
           Text(
             s4,
             style: TextStyle(
-              color: Colors.blueGrey[100],
+              color: Colors.blueGrey[700],
               fontSize: 14,
             ),
           ),
@@ -224,7 +224,7 @@ class InfoText extends StatelessWidget {
         Text(
           '$type: ',
           style: TextStyle(
-            color: Colors.blueGrey[300],
+            color: Colors.blueGrey,
             fontSize: 16,
           ),
         ),
@@ -232,7 +232,7 @@ class InfoText extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: Colors.blueGrey[100],
+              color: Colors.blueGrey[700],
               fontSize: 16,
             ),
           ),
