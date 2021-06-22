@@ -22,6 +22,8 @@ dev_dependencies:
   google_sign_in: ^5.0.1
   get: ^4.1.4
   material_design_icons_flutter: ^4.0.5955
+  animate_icons: ^2.0.0
+  multi_select_flutter: ^4.0.0
 
 
   
