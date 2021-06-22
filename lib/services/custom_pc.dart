@@ -23,7 +23,18 @@ class PcCustom extends StatefulWidget {
 
 class _PcCustomState extends State<PcCustom> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  String errorMessage = '';
+  String successMessage = '';
+  final GlobalKey<FormState> _formStateKey1 = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formStateKey2 = GlobalKey<FormState>();
+  String _emailId;
+  String _password;
+  final _emailIdController = TextEditingController(text: '');
   final _phoneNumberController = TextEditingController(text: '');
+  bool expandedItem1 = false;
+  bool expandedItem2 = false;
+  bool showMenu = false;
 
   var colorizeColors = [
     Colors.greenAccent,
@@ -31,11 +42,21 @@ class _PcCustomState extends State<PcCustom> {
     Colors.yellow,
     Colors.red,
   ];
-  String validate(String value) {
+  String validatePhoneNumber(String value) {
     if (value.trim().isEmpty && value.trim().length != 10) {
       return 'Number is invalid';
     }
     return null;
+  }
+
+  String validateEmail(String value) {
+    Pattern pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regex = new RegExp(pattern);
+    if (value.isEmpty || !regex.hasMatch(value))
+      return 'Enter Valid Email Id!!!';
+    else
+      return null;
   }
 
   showAlertDialog(BuildContext context, String title, body) {
@@ -441,7 +462,7 @@ class _PcCustomState extends State<PcCustom> {
                 color: Colors.black87,
                 width: width,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 0, top: 5),
+                  padding: EdgeInsets.only(top: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -481,6 +502,377 @@ class _PcCustomState extends State<PcCustom> {
                   ),
                 ),
               ),
+              showMenu
+                  ? FunkyOverlay(
+                      backgroundColor: Colors.black87,
+                      child: ListView(
+                        children: <Widget>[
+                          SizedBox(
+                            height: ResponsiveWidget.isSmallScreen(context)
+                                ? 30
+                                : height * 0.14,
+                          ),
+                          Center(
+                            child: Text(
+                              "CHOOSE YOUR REQUIREMENT",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: ResponsiveWidget.isSmallScreen(context)
+                                    ? 200
+                                    : width / 4,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.black87,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'WorkStation',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontFamily: fontFamily,
+                                              ),
+                                            ),
+                                            Icon(Icons.expand_more_rounded),
+                                          ],
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            expandedItem1 = !expandedItem1;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    AnimatedSwitcher(
+                                      switchInCurve: Curves.ease,
+                                      switchOutCurve: Curves.ease,
+                                      duration: Duration(milliseconds: 650),
+                                      child: expandedItem1
+                                          ? Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Form(
+                                                  key: _formStateKey1,
+                                                  autovalidateMode:
+                                                      AutovalidateMode.always,
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 15,
+                                                                bottom: 0),
+                                                        child: TextFormField(
+                                                          validator:
+                                                              validateEmail,
+                                                          onSaved: (value) {
+                                                            _emailId = value;
+                                                          },
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .emailAddress,
+                                                          controller:
+                                                              _emailIdController,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            labelStyle:
+                                                                TextStyle(
+                                                                    color: Colors
+                                                                        .white),
+                                                            focusedBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide: BorderSide(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  width: 2.0),
+                                                            ),
+                                                            border:
+                                                                OutlineInputBorder(),
+                                                            labelText: 'Email',
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 15,
+                                                                bottom: 0),
+                                                        //padding: EdgeInsets.symmetric(horizontal: 15),
+                                                        child: TextFormField(
+                                                          validator:
+                                                              validatePhoneNumber,
+                                                          onSaved: (value) {
+                                                            _password = value;
+                                                          },
+                                                          controller:
+                                                              _phoneNumberController,
+                                                          decoration:
+                                                              InputDecoration(
+                                                                  labelStyle: TextStyle(
+                                                                      color: Colors
+                                                                          .white),
+                                                                  focusedBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide: BorderSide(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2.0),
+                                                                  ),
+                                                                  border:
+                                                                      OutlineInputBorder(),
+                                                                  labelText:
+                                                                      'Phone Number',
+                                                                  hintText:
+                                                                      'Enter Your Phone Number'),
+                                                        ),
+                                                      ),
+                                                      (errorMessage != ''
+                                                          ? Text(
+                                                              errorMessage,
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .red),
+                                                            )
+                                                          : Container()),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 30,
+                                                ),
+                                                Container(
+                                                  height: 50,
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.blue,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  child: ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      primary: Colors.black87,
+                                                    ),
+                                                    child: Text(
+                                                      'Get Quote',
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 20,
+                                                        fontFamily: fontFamily,
+                                                      ),
+                                                    ),
+                                                    onPressed: () {
+                                                      if (_formStateKey1
+                                                          .currentState
+                                                          .validate()) {
+                                                        _formStateKey1
+                                                            .currentState
+                                                            .save();
+                                                      }
+                                                    },
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          : SizedBox.shrink(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: ResponsiveWidget.isSmallScreen(context)
+                                    ? 200
+                                    : width / 4,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.black87,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Gaming',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontFamily: fontFamily,
+                                              ),
+                                            ),
+                                            Icon(Icons.expand_more_rounded),
+                                          ],
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            expandedItem2 = !expandedItem2;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    expandedItem2
+                                        ? Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Form(
+                                                key: _formStateKey2,
+                                                autovalidateMode:
+                                                    AutovalidateMode.always,
+                                                child: Column(
+                                                  children: <Widget>[
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 15,
+                                                              bottom: 0),
+                                                      child: TextFormField(
+                                                        validator:
+                                                            validateEmail,
+                                                        onSaved: (value) {
+                                                          _emailId = value;
+                                                        },
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .emailAddress,
+                                                        controller:
+                                                            _emailIdController,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelStyle: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    width: 2.0),
+                                                          ),
+                                                          border:
+                                                              OutlineInputBorder(),
+                                                          labelText: 'Email',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 15,
+                                                              bottom: 0),
+                                                      //padding: EdgeInsets.symmetric(horizontal: 15),
+                                                      child: TextFormField(
+                                                        validator:
+                                                            validatePhoneNumber,
+                                                        onSaved: (value) {
+                                                          _password = value;
+                                                        },
+                                                        controller:
+                                                            _phoneNumberController,
+                                                        decoration:
+                                                            InputDecoration(
+                                                                labelStyle: TextStyle(
+                                                                    color: Colors
+                                                                        .white),
+                                                                focusedBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide: BorderSide(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      width:
+                                                                          2.0),
+                                                                ),
+                                                                border:
+                                                                    OutlineInputBorder(),
+                                                                labelText:
+                                                                    'Phone Number',
+                                                                hintText:
+                                                                    'Enter Your Phone Number'),
+                                                      ),
+                                                    ),
+                                                    (errorMessage != ''
+                                                        ? Text(
+                                                            errorMessage,
+                                                            style: TextStyle(
+                                                                color:
+                                                                    Colors.red),
+                                                          )
+                                                        : Container()),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 30,
+                                              ),
+                                              Container(
+                                                height: 50,
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.blue,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                child: ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    primary: Colors.black87,
+                                                  ),
+                                                  child: Text(
+                                                    'Get Quote',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 20,
+                                                      fontFamily: fontFamily,
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    if (_formStateKey2
+                                                        .currentState
+                                                        .validate()) {
+                                                      _formStateKey2
+                                                          .currentState
+                                                          .save();
+                                                    }
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : SizedBox.shrink(),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  : SizedBox.shrink(),
               Positioned(
                 right: 1,
                 child: Container(
@@ -502,107 +894,9 @@ class _PcCustomState extends State<PcCustom> {
                             ),
                             iconSize: 33,
                             onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return FunkyOverlay(
-                                    backgroundColor: Colors.black54,
-                                    child: Stack(
-                                      alignment: Alignment.topRight,
-                                      children: [
-                                        ListView(
-                                          children: <Widget>[
-                                            SizedBox(height: 20),
-                                            Center(
-                                              child: Text(
-                                                "CHOOSE YOUR REQUIREMENT",
-                                                style: TextStyle(
-                                                    fontSize: 24,
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Wrap(
-                                              direction: Axis.vertical,
-                                              alignment: WrapAlignment.start,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
-                                                      child: Container(
-                                                          width: width / 2,
-                                                          height: height / 2,
-                                                          color: Colors.red),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
-                                                      child: Container(
-                                                          width: width / 2,
-                                                          height: height / 2,
-                                                          color: Colors.green),
-                                                    )
-                                                  ],
-                                                ),
-                                                Row(
-                                                  children: [],
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        IconButton(
-                                            color: Colors.white,
-                                            icon: Icon(Icons.close),
-                                            iconSize:
-                                                ResponsiveWidget.isSmallScreen(
-                                                        context)
-                                                    ? 30
-                                                    : width * 0.02,
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            }),
-                                      ],
-                                    ),
-                                  );
-                                  /*Dialog(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        elevation: 16,
-                                        child: Container(
-                                          color: Colors.black87,
-                                          height: height,
-                                          width: width,
-                                          child: ListView(
-                                            children: <Widget>[
-                                              SizedBox(height: 20),
-                                              Center(
-                                                child: Text(
-                                                  "MENU",
-                                                  style: TextStyle(
-                                                      fontSize: 24,
-                                                      color: Colors.blue,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                              ),
-                                              SizedBox(height: 20),
-                                              Text("App drawer Content 1 +"),
-                                              Text("App drawer Content 2 +"),
-                                              Text("App drawer Content 3 +"),
-                                            ],
-                                          ),
-                                        ),
-                                      );*/
-                                },
-                              );
+                              setState(() {
+                                showMenu = !showMenu;
+                              });
                             },
                           )),
                           Column(

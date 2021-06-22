@@ -43,10 +43,7 @@ class FunkyOverlayState extends State<FunkyOverlay>
                 color: widget.backgroundColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0))),
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: widget.child,
-            ),
+            child: widget.child,
           ),
         ),
       ),
