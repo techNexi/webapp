@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:webapp/bottom_bar.dart';
 import 'package:webapp/home_page.dart';
 import 'package:webapp/misc/blink_button.dart';
 import 'package:webapp/misc/pop-up.dart';
@@ -13,7 +12,7 @@ import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:mailto/mailto.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:animate_icons/animate_icons.dart';
+import 'package:webapp/misc/list_items.dart';
 
 class PcCustom extends StatefulWidget {
   const PcCustom({Key key}) : super(key: key);
@@ -24,47 +23,18 @@ class PcCustom extends StatefulWidget {
 
 class _PcCustomState extends State<PcCustom> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  bool selected4 = false;
+  bool selected8 = false;
+  bool selected16 = false;
+  bool selected32 = false;
 
-  String errorMessage = '';
-  String successMessage = '';
-  final GlobalKey<FormState> _formStateKey1 = GlobalKey<FormState>();
-  final GlobalKey<FormState> _formStateKey2 = GlobalKey<FormState>();
-  String _emailId;
-  String _password;
-  bool selectedIntel = false;
-  bool selectedAMD = false;
-  final _emailIdController = TextEditingController(text: '');
-  final _phoneNumberController = TextEditingController(text: '');
-  bool expandedItem1 = false;
-  bool expandedItem2 = false;
   bool showMenu = false;
-  AnimateIconController controller = AnimateIconController();
-
   var colorizeColors = [
     Colors.greenAccent,
     Colors.blue,
     Colors.yellow,
     Colors.red,
   ];
-
-  String validatePhoneNumber(String value) {
-    if (value.trim().isEmpty && value.trim().length != 10) {
-      return 'Number is invalid';
-    }
-    return null;
-  }
-
-  String validateEmail(String value) {
-    Pattern pattern =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
-    if (value.isEmpty || !regex.hasMatch(value))
-      return 'Enter Valid Email Id!!!';
-    else
-      return null;
-  }
-
-  double _currentSliderValue = 70000;
 
   showAlertDialog(BuildContext context, String title, body) {
     showDialog(
@@ -500,568 +470,474 @@ class _PcCustomState extends State<PcCustom> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: ResponsiveWidget.isSmallScreen(context)
-                                    ? 200
-                                    : width / 4,
-                                child: Column(
+                          ResponsiveWidget.isSmallScreen(context)
+                              ? Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Container(
-                                      height: 50,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: Colors.black87,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'WorkStation',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 20,
-                                                fontFamily: fontFamily,
-                                              ),
-                                            ),
-                                            AnimateIcons(
-                                              endIcon: Icons.close,
-                                              startIcon: Icons.add,
-                                              controller: controller,
-                                              onStartIconPress: () {
-                                                controller.animateToEnd();
-                                                setState(() {
-                                                  expandedItem1 = true;
-                                                });
-                                                return true;
-                                              },
-                                              onEndIconPress: () {
-                                                controller.animateToStart();
-                                                setState(() {
-                                                  expandedItem1 = false;
-                                                });
-                                                return true;
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                        onPressed: () {
-                                          setState(() {
-                                            if (expandedItem1) {
-                                              controller.animateToStart();
-                                              setState(() {
-                                                expandedItem1 = false;
-                                              });
-                                            } else {
-                                              controller.animateToEnd();
-                                              setState(() {
-                                                expandedItem1 = true;
-                                              });
-                                            }
-                                          });
-                                        },
-                                      ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        //add widget here
+                                        PopUpItem(title: "WorkStation"),
+                                        PopUpItem(title: "Professional"),
+                                        PopUpItem(title: "Business"),
+                                      ],
                                     ),
-                                    AnimatedSwitcher(
-                                      switchInCurve: Curves.ease,
-                                      switchOutCurve: Curves.ease,
-                                      reverseDuration:
-                                          Duration(milliseconds: 600),
-                                      duration: Duration(milliseconds: 600),
-                                      child: expandedItem1
-                                          ? Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: height * 0.05),
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                                    Column(
+                                      children: [
+                                        PopUpItem(
+                                          title: "Gaming",
+                                          childBeforeSlider: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                border: Border.all(
+                                                    width: 2,
+                                                    color: Colors.white70)),
+                                            child: ListTile(
+                                              title: Text(
+                                                "RAM",
+                                                style: TextStyle(
+                                                  color: Colors.white54,
+                                                  fontSize: ResponsiveWidget
+                                                          .isSmallScreen(
+                                                              context)
+                                                      ? 15
+                                                      : 18,
+                                                ),
+                                              ),
+                                              trailing: Wrap(
+                                                alignment: WrapAlignment.center,
                                                 children: [
-                                                  Form(
-                                                    key: _formStateKey1,
-                                                    autovalidateMode:
-                                                        AutovalidateMode.always,
-                                                    child: Column(
-                                                      children: <Widget>[
-                                                        Container(
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5),
-                                                              border: Border.all(
-                                                                  width: 2,
-                                                                  color: Colors
-                                                                      .white70)),
-                                                          child: ListTile(
-                                                            title: Text(
-                                                              "Processor",
-                                                              style: TextStyle(
-                                                                color: Colors
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = true;
+                                                        selected8 = false;
+                                                        selected16 = false;
+                                                        selected32 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 42
+                                                            : width * 0.1,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 28
+                                                            : height * 0.032,
+                                                        decoration: BoxDecoration(
+                                                            color: selected4
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
                                                                     .white54,
-                                                                fontSize: 18,
-                                                              ),
-                                                            ),
-                                                            trailing: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .min,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                TextButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    setState(
-                                                                        () {
-                                                                      selectedIntel =
-                                                                          true;
-                                                                      selectedAMD =
-                                                                          false;
-                                                                    });
-                                                                  },
-                                                                  child: Container(
-                                                                      width: 60,
-                                                                      height: 40,
-                                                                      decoration: BoxDecoration(color: !selectedIntel ? Colors.white54 : Colors.blue[300], borderRadius: BorderRadius.circular(5)),
-                                                                      child: Center(
-                                                                        child:
-                                                                            Text(
-                                                                          "Intel",
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize:
-                                                                                15,
-                                                                          ),
-                                                                        ),
-                                                                      )),
-                                                                ),
-                                                                SizedBox(
-                                                                    width: 5),
-                                                                TextButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    setState(
-                                                                        () {
-                                                                      selectedAMD =
-                                                                          true;
-                                                                      selectedIntel =
-                                                                          false;
-                                                                    });
-                                                                  },
-                                                                  child: Container(
-                                                                      decoration: BoxDecoration(color: !selectedAMD ? Colors.white54 : Colors.red[900], borderRadius: BorderRadius.circular(5)),
-                                                                      width: 60,
-                                                                      height: 40,
-                                                                      child: Center(
-                                                                        child:
-                                                                            Text(
-                                                                          "AMD",
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize:
-                                                                                15,
-                                                                          ),
-                                                                        ),
-                                                                      )),
-                                                                )
-                                                              ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        child: Center(
+                                                          child: Text(
+                                                            "4GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
                                                             ),
                                                           ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 15,
-                                                                  bottom: 0),
-                                                          child: Column(
-                                                            children: [
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    "Selected Price Range",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      fontSize:
-                                                                          15,
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    " Rs.${_currentSliderValue.toString()}",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      fontSize:
-                                                                          15,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Slider(
-                                                                mouseCursor:
-                                                                    MouseCursor
-                                                                        .defer,
-                                                                activeColor:
-                                                                    Colors
-                                                                        .white,
-                                                                value:
-                                                                    _currentSliderValue,
-                                                                min: 30000,
-                                                                max: 300000,
-                                                                divisions: 100,
-                                                                label: _currentSliderValue
-                                                                    .round()
-                                                                    .toString(),
-                                                                onChanged:
-                                                                    (double
-                                                                        value) {
-                                                                  setState(() {
-                                                                    _currentSliderValue =
-                                                                        value;
-                                                                  });
-                                                                },
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 15,
-                                                                  bottom: 0),
-                                                          child: TextFormField(
-                                                            onSaved: (value) {
-                                                              _emailId = value;
-                                                            },
-                                                            maxLength: 500,
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .multiline,
-                                                            controller:
-                                                                _emailIdController,
-                                                            decoration:
-                                                                InputDecoration(
-                                                                    labelStyle:
-                                                                        TextStyle(
-                                                                      color: Colors
-                                                                          .white,
-                                                                    ),
-                                                                    focusedBorder:
-                                                                        OutlineInputBorder(
-                                                                      borderSide: BorderSide(
-                                                                          color: Colors
-                                                                              .white,
-                                                                          width:
-                                                                              2.0),
-                                                                    ),
-                                                                    enabledBorder:
-                                                                        const OutlineInputBorder(
-                                                                      borderSide: const BorderSide(
-                                                                          color: Colors
-                                                                              .white54,
-                                                                          width:
-                                                                              2.0),
-                                                                    ),
-                                                                    border: new OutlineInputBorder(
-                                                                        borderSide: new BorderSide(
-                                                                            color: Colors
-                                                                                .white70,
-                                                                            width:
-                                                                                2.0)),
-                                                                    labelText:
-                                                                        'Short description(optional)',
-                                                                    hintText:
-                                                                        "Short description(optioinal)"),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 15,
-                                                                  bottom: 0),
-                                                          //padding: EdgeInsets.symmetric(horizontal: 15),
-                                                          child: TextFormField(
-                                                            validator:
-                                                                validatePhoneNumber,
-                                                            onSaved: (value) {
-                                                              _password = value;
-                                                            },
-                                                            controller:
-                                                                _phoneNumberController,
-                                                            decoration:
-                                                                InputDecoration(
-                                                                    labelStyle:
-                                                                        TextStyle(
-                                                                      color: Colors
-                                                                          .white,
-                                                                    ),
-                                                                    focusedBorder:
-                                                                        OutlineInputBorder(
-                                                                      borderSide: BorderSide(
-                                                                          color: Colors
-                                                                              .white,
-                                                                          width:
-                                                                              2.0),
-                                                                    ),
-                                                                    enabledBorder:
-                                                                        const OutlineInputBorder(
-                                                                      borderSide: const BorderSide(
-                                                                          color: Colors
-                                                                              .white54,
-                                                                          width:
-                                                                              2.0),
-                                                                    ),
-                                                                    border:
-                                                                        OutlineInputBorder(),
-                                                                    labelText:
-                                                                        'Whatsapp Number',
-                                                                    hintText:
-                                                                        'Enter Your Phone Number'),
-                                                          ),
-                                                        ),
-                                                        (errorMessage != ''
-                                                            ? Text(
-                                                                errorMessage,
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .red),
-                                                              )
-                                                            : Container()),
-                                                      ],
-                                                    ),
+                                                        )),
                                                   ),
                                                   SizedBox(
-                                                    height: 30,
+                                                      width: ResponsiveWidget
+                                                              .isSmallScreen(
+                                                                  context)
+                                                          ? 0
+                                                          : 5),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = false;
+                                                        selected8 = true;
+                                                        selected16 = false;
+                                                        selected32 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: selected8
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 42
+                                                            : width * 0.06,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 28
+                                                            : height * 0.032,
+                                                        child: Center(
+                                                          child: Text(
+                                                            "8GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
                                                   ),
-                                                  Container(
-                                                    height: 50,
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                        color: Colors.blue,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5)),
-                                                    child: ElevatedButton(
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                        primary: Colors.black54,
-                                                      ),
-                                                      child: Text(
-                                                        'Get Quote',
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.white,
-                                                          fontSize: 20,
-                                                          fontFamily:
-                                                              fontFamily,
-                                                        ),
-                                                      ),
-                                                      onPressed: () {
-                                                        if (_formStateKey1
-                                                            .currentState
-                                                            .validate()) {
-                                                          _formStateKey1
-                                                              .currentState
-                                                              .save();
-                                                        }
-                                                      },
-                                                    ),
+                                                  SizedBox(
+                                                      width: ResponsiveWidget
+                                                              .isSmallScreen(
+                                                                  context)
+                                                          ? 0
+                                                          : 5),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = false;
+                                                        selected8 = false;
+                                                        selected16 = true;
+                                                        selected32 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: selected16
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 42
+                                                            : width * 0.06,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 28
+                                                            : height * 0.032,
+                                                        child: Center(
+                                                          child: Text(
+                                                            "16GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
+                                                  ),
+                                                  SizedBox(
+                                                      width: ResponsiveWidget
+                                                              .isSmallScreen(
+                                                                  context)
+                                                          ? 0
+                                                          : 5),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = false;
+                                                        selected8 = false;
+                                                        selected16 = false;
+                                                        selected32 = true;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: selected32
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 42
+                                                            : width * 0.06,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 28
+                                                            : height * 0.032,
+                                                        child: Center(
+                                                          child: Text(
+                                                            "32GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
                                                   ),
                                                 ],
                                               ),
-                                            )
-                                          : SizedBox.shrink(),
+                                            ),
+                                          ),
+                                        ),
+                                        PopUpItem(title: "Student"),
+                                        PopUpItem(title: "All In One")
+                                      ],
                                     ),
                                   ],
-                                ),
-                              ),
-                              Container(
-                                width: ResponsiveWidget.isSmallScreen(context)
-                                    ? 200
-                                    : width / 4,
-                                child: Column(
+                                )
+                              : Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      height: 50,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: Colors.black87,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'Gaming',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 20,
-                                                fontFamily: fontFamily,
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        //add widget here
+                                        PopUpItem(title: "WorkStation"),
+                                        PopUpItem(title: "Professional")
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        PopUpItem(
+                                          title: "Gaming",
+                                          childBeforeSlider: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                border: Border.all(
+                                                    width: 2,
+                                                    color: Colors.white70)),
+                                            child: ListTile(
+                                              title: Text(
+                                                "RAM",
+                                                style: TextStyle(
+                                                  color: Colors.white54,
+                                                  fontSize: ResponsiveWidget
+                                                          .isSmallScreen(
+                                                              context)
+                                                      ? 15
+                                                      : 18,
+                                                ),
+                                              ),
+                                              trailing: Wrap(
+                                                alignment: WrapAlignment.center,
+                                                children: [
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = true;
+                                                        selected8 = false;
+                                                        selected16 = false;
+                                                        selected32 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 35
+                                                            : width * 0.03,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 20
+                                                            : width * 0.022,
+                                                        decoration: BoxDecoration(
+                                                            color: selected4
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        child: Center(
+                                                          child: Text(
+                                                            "4GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
+                                                  ),
+                                                  SizedBox(
+                                                      width: ResponsiveWidget
+                                                              .isSmallScreen(
+                                                                  context)
+                                                          ? 0
+                                                          : 5),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = false;
+                                                        selected8 = true;
+                                                        selected16 = false;
+                                                        selected32 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: selected8
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 35
+                                                            : width * 0.03,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 20
+                                                            : width * 0.022,
+                                                        child: Center(
+                                                          child: Text(
+                                                            "8GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
+                                                  ),
+                                                  SizedBox(
+                                                      width: ResponsiveWidget
+                                                              .isSmallScreen(
+                                                                  context)
+                                                          ? 0
+                                                          : 5),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = false;
+                                                        selected8 = false;
+                                                        selected16 = true;
+                                                        selected32 = false;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: selected16
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 35
+                                                            : width * 0.03,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 20
+                                                            : width * 0.022,
+                                                        child: Center(
+                                                          child: Text(
+                                                            "16GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
+                                                  ),
+                                                  SizedBox(
+                                                      width: ResponsiveWidget
+                                                              .isSmallScreen(
+                                                                  context)
+                                                          ? 0
+                                                          : 5),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        selected4 = false;
+                                                        selected8 = false;
+                                                        selected16 = false;
+                                                        selected32 = true;
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: selected32
+                                                                ? Colors
+                                                                    .green[300]
+                                                                : Colors
+                                                                    .white54,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        width: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 35
+                                                            : width * 0.03,
+                                                        height: ResponsiveWidget
+                                                                .isSmallScreen(
+                                                                    context)
+                                                            ? 20
+                                                            : width * 0.022,
+                                                        child: Center(
+                                                          child: Text(
+                                                            "32GB",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                            ),
+                                                          ),
+                                                        )),
+                                                  ),
+                                                ],
                                               ),
                                             ),
-                                            Icon(Icons.expand_more_rounded),
-                                          ],
-                                        ),
-                                        onPressed: () {
-                                          setState(() {
-                                            expandedItem2 = !expandedItem2;
-                                          });
-                                        },
-                                      ),
+                                          ),
+                                        )
+                                      ],
                                     ),
-                                    expandedItem2
-                                        ? Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Form(
-                                                key: _formStateKey2,
-                                                autovalidateMode:
-                                                    AutovalidateMode.always,
-                                                child: Column(
-                                                  children: <Widget>[
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 15,
-                                                              bottom: 0),
-                                                      child: TextFormField(
-                                                        validator:
-                                                            validateEmail,
-                                                        onSaved: (value) {
-                                                          _emailId = value;
-                                                        },
-                                                        keyboardType:
-                                                            TextInputType
-                                                                .emailAddress,
-                                                        controller:
-                                                            _emailIdController,
-                                                        decoration:
-                                                            InputDecoration(
-                                                          labelStyle: TextStyle(
-                                                              color:
-                                                                  Colors.white),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    width: 2.0),
-                                                          ),
-                                                          border:
-                                                              OutlineInputBorder(),
-                                                          labelText: 'Email',
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 15,
-                                                              bottom: 0),
-                                                      //padding: EdgeInsets.symmetric(horizontal: 15),
-                                                      child: TextFormField(
-                                                        validator:
-                                                            validatePhoneNumber,
-                                                        onSaved: (value) {
-                                                          _password = value;
-                                                        },
-                                                        controller:
-                                                            _phoneNumberController,
-                                                        decoration:
-                                                            InputDecoration(
-                                                                labelStyle: TextStyle(
-                                                                    color: Colors
-                                                                        .white),
-                                                                focusedBorder:
-                                                                    OutlineInputBorder(
-                                                                  borderSide: BorderSide(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      width:
-                                                                          2.0),
-                                                                ),
-                                                                border:
-                                                                    OutlineInputBorder(),
-                                                                labelText:
-                                                                    'Phone Number',
-                                                                hintText:
-                                                                    'Enter Your Phone Number'),
-                                                      ),
-                                                    ),
-                                                    (errorMessage != ''
-                                                        ? Text(
-                                                            errorMessage,
-                                                            style: TextStyle(
-                                                                color:
-                                                                    Colors.red),
-                                                          )
-                                                        : Container()),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 30,
-                                              ),
-                                              Container(
-                                                height: 50,
-                                                width: double.infinity,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.blue,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                child: ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    primary: Colors.black87,
-                                                  ),
-                                                  child: Text(
-                                                    'Get Quote',
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 20,
-                                                      fontFamily: fontFamily,
-                                                    ),
-                                                  ),
-                                                  onPressed: () {
-                                                    if (_formStateKey2
-                                                        .currentState
-                                                        .validate()) {
-                                                      _formStateKey2
-                                                          .currentState
-                                                          .save();
-                                                    }
-                                                  },
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        : SizedBox.shrink(),
                                   ],
                                 ),
-                              ),
-                            ],
-                          ),
                         ],
                       ),
                     )
