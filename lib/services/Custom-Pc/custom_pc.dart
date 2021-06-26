@@ -6,13 +6,13 @@ import 'package:webapp/misc/blink_button.dart';
 import 'package:webapp/misc/pop-up.dart';
 import 'package:webapp/responsive.dart';
 import 'package:webapp/theme.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+//import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:mailto/mailto.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:webapp/misc/list_items.dart';
+import 'package:webapp/services/Custom-Pc/list_items.dart';
 
 class PcCustom extends StatefulWidget {
   const PcCustom({Key key}) : super(key: key);
@@ -76,7 +76,7 @@ class _PcCustomState extends State<PcCustom> {
             ),
           ),
           child: Stack(
-            alignment: Alignment.topLeft,
+            alignment: AlignmentDirectional.topStart,
             children: [
               SingleChildScrollView(
                 child: Column(
@@ -105,7 +105,7 @@ class _PcCustomState extends State<PcCustom> {
                               fontFamily: fontFamily2,
                             ),
                           ),
-                          Container(
+                          /*   Container(
                             height: height * 0.4,
                             child: DefaultTextStyle(
                               style: TextStyle(
@@ -143,7 +143,7 @@ class _PcCustomState extends State<PcCustom> {
                                     ]),
                               ),
                             ),
-                          ),
+                          ),*/
                         ],
                       ),
                     ),
@@ -167,7 +167,7 @@ class _PcCustomState extends State<PcCustom> {
                                   : width * 0.0725),
                           child: Column(
                             children: [
-                              AnimatedTextKit(
+                              /* AnimatedTextKit(
                                 animatedTexts: [
                                   ColorizeAnimatedText(
                                     "Buying a pc is overrated nowadays. At TechNEXI, we understand the importance of building the perfect PC. To cater to that, we offer the most extensive range of components and specifications on the system build market. Our collection of custom PC’s, Gaming setups all are customizable to suit your unique preferences, whilst maintaining an expert level of value and quality, regardless of budget.",
@@ -189,7 +189,7 @@ class _PcCustomState extends State<PcCustom> {
                                 totalRepeatCount: 500000,
                                 repeatForever: true,
                                 isRepeatingAnimation: true,
-                              ),
+                              ),*/
                             ],
                           ),
                         ),

@@ -63,9 +63,10 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
+              shadowColor: Colors.black,
               backgroundColor:
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
-              elevation: 0,
+              elevation: 9,
               centerTitle: true,
               actions: [
                 IconButton(

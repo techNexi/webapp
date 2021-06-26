@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:webapp/services-des.dart';
-import 'package:webapp/services/custom_pc.dart';
-import 'package:webapp/services/system_service.dart';
+import 'package:webapp/services/Custom-Pc/custom_pc.dart';
+import 'package:webapp/services/System-Services/system_service.dart';
 
 class ServicesHeading extends StatelessWidget {
   const ServicesHeading({

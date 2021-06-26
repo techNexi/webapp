@@ -8,7 +8,7 @@ import 'package:webapp/responsive.dart';
 import 'package:webapp/theme.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:webapp/web_scrollbar.dart';
-import 'package:webapp/misc/scrolling_text.dart';
+import 'package:webapp/services/Custom-Pc/scrolling_text.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 import 'package:url_launcher/url_launcher.dart';

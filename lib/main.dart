@@ -1,6 +1,6 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:webapp/services/custom_pc.dart';
-import 'package:webapp/services/system_service.dart';
+import 'package:webapp/services/Custom-Pc/custom_pc.dart';
+import 'package:webapp/services/System-Services/system_service.dart';
 import 'package:webapp/theme.dart';
 import 'package:flutter/material.dart';
 
