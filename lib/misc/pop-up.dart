@@ -21,8 +21,7 @@ class FunkyOverlayState extends State<FunkyOverlay>
 
     controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 650));
-    scaleAnimation =
-        CurvedAnimation(parent: controller, curve: Curves.elasticInOut);
+    scaleAnimation = CurvedAnimation(parent: controller, curve: Curves.easeIn);
 
     controller.addListener(() {
       setState(() {});
@@ -40,9 +39,11 @@ class FunkyOverlayState extends State<FunkyOverlay>
           scale: scaleAnimation,
           child: Container(
             decoration: ShapeDecoration(
-                color: widget.backgroundColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0))),
+              color: widget.backgroundColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+            ),
             child: widget.child,
           ),
         ),

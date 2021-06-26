@@ -1,7 +1,5 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:webapp/theme.dart';
 import 'package:webapp/web_scrollbar.dart';
-import 'package:webapp/bottom_bar.dart';
-import 'package:webapp/servics.dart';
 import 'package:webapp/drawer_small.dart';
 import 'package:webapp/responsive.dart';
 import 'package:webapp/nav_bar.dart';
@@ -25,18 +23,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  final List<String> assets = [
-    'assets/images/3.png',
-    'assets/images/1.png',
-    'assets/images/4.png',
-  ];
-
-  final List<String> title = [
-    'DEVELOP',
-    'KNOWLEDGE',
-    'SERVICE',
-  ];
-
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -53,52 +39,40 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    _opacity = _scrollPosition < screenSize.height * 0.40
-        ? _scrollPosition / (screenSize.height * 0.40)
-        : 1;
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    _opacity =
+        _scrollPosition < height * 0.40 ? _scrollPosition / (height * 0.40) : 1;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: myWhite1,
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
-              shadowColor: Colors.black,
+              iconTheme: IconThemeData(color: myBlack3),
               backgroundColor:
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
-              elevation: 9,
+              elevation: _opacity,
               centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: Theme.of(context).brightness == Brightness.light
-                      ? Icon(Icons.brightness_2_outlined)
-                      : Icon(Icons.brightness_6),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {
-                    EasyDynamicTheme.of(context).changeTheme();
-                  },
-                ),
-              ],
               title: Text(
                 'TechNEXI',
                 style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
+                  color: myBlack3,
+                  fontSize: 18,
                   fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w600,
                   letterSpacing: 3,
                 ),
               ),
             )
           : PreferredSize(
-              preferredSize: Size(screenSize.width, 600),
+              preferredSize: Size(width, 600),
               child: TopBarContents(_opacity),
             ),
       drawer: WebappDrawer(),
       body: WebScrollbar(
-        color: Colors.blueGrey,
-        backgroundColor: Colors.blueGrey.withOpacity(0.3),
+        color: Colors.grey,
+        backgroundColor: myWhite1,
         width: 10,
         heightFraction: 0.3,
         controller: _scrollController,
@@ -107,7 +81,75 @@ class _HomePageState extends State<HomePage> {
           physics: ClampingScrollPhysics(),
           child: Column(
             children: [
-              Stack(
+              SizedBox(
+                  height: ResponsiveWidget.isSmallScreen(context)
+                      ? height * 0.17
+                      : height * 0.23),
+              Text(
+                "SERVICE  BEYOND  COMPROMISE",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: myBlack2,
+                  fontSize: ResponsiveWidget.isSmallScreen(context) ? 22 : 38,
+                  fontFamily: 'Montserrat',
+                  fontWeight: ResponsiveWidget.isSmallScreen(context)
+                      ? FontWeight.w600
+                      : FontWeight.w800,
+                  letterSpacing: 3,
+                ),
+              ),
+              SizedBox(height: height * 0.2),
+              Padding(
+                padding: EdgeInsets.only(left: width * 0.1),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    width: width / 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'ABOUT US\n',
+                          style: TextStyle(
+                            color: myBlack1,
+                            fontSize: ResponsiveWidget.isSmallScreen(context)
+                                ? 18
+                                : 32,
+                            fontFamily: fontFamily2,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                        Text(
+                          'from bold ideas to successful digital products via creating future-ready apps, websites and digital solutions. We also provide expertised Tech solutions and services.',
+                          style: TextStyle(
+                            color: myBlack2,
+                            fontSize: ResponsiveWidget.isSmallScreen(context)
+                                ? 13
+                                : 20,
+                            fontWeight: ResponsiveWidget.isSmallScreen(context)
+                                ? FontWeight.w300
+                                : FontWeight.w400,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Container(height: height)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+/*Stack(
                 children: [
                   Container(
                     color: Colors.black,
@@ -341,11 +383,4 @@ class _HomePageState extends State<HomePage> {
               ServicesHeading(screenSize: screenSize),
               ServicesItem(),
               SizedBox(height: screenSize.height / 10),
-              BottomBar(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+              BottomBar(), */

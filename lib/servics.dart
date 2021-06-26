@@ -1,7 +1,7 @@
-import 'package:webapp/responsive.dart';
+/*import 'package:webapp/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 import 'package:webapp/services-des.dart';
 import 'package:webapp/services/Custom-Pc/custom_pc.dart';
 import 'package:webapp/services/System-Services/system_service.dart';
@@ -60,7 +60,7 @@ class ServicesItem extends StatefulWidget {
 }
 
 class _ServicesItemState extends State<ServicesItem> {
-  final CarouselController _controller = CarouselController();
+ // final CarouselController _controller = CarouselController();
 
   List _isHovering = [false, false, false, false, false, false, false];
   List _isSelected = [true, false, false, false, false, false, false];
@@ -135,7 +135,7 @@ class _ServicesItemState extends State<ServicesItem> {
     var screenSize = MediaQuery.of(context).size;
     var imageSliders = generateImageTiles(screenSize);
 
-    return Column(
+    /*return Column(
       children: [
         Stack(
           children: [
@@ -282,4 +282,4 @@ class _ServicesItemState extends State<ServicesItem> {
       ],
     );
   }
-}
+}*/*/

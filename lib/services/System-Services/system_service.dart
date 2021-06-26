@@ -6,7 +6,6 @@ import 'package:webapp/drawer_small.dart';
 import 'package:webapp/nav_bar.dart';
 import 'package:webapp/responsive.dart';
 import 'package:webapp/theme.dart';
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:webapp/web_scrollbar.dart';
 import 'package:webapp/services/Custom-Pc/scrolling_text.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -87,18 +86,6 @@ class _SysytemServicesState extends State<SysytemServices> {
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
               elevation: 0,
               centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: Theme.of(context).brightness == Brightness.light
-                      ? Icon(Icons.brightness_2_outlined)
-                      : Icon(Icons.brightness_6),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {
-                    EasyDynamicTheme.of(context).changeTheme();
-                  },
-                ),
-              ],
               title: Text(
                 'TechNEXI',
                 style: TextStyle(
