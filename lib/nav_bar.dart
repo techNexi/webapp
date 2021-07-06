@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:webapp/home_page.dart';
+import 'package:webapp/others/techwiki.dart';
 import 'package:webapp/theme.dart';
 
 class TopBarContents extends StatefulWidget {
@@ -68,7 +69,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'About Us',
                             style: TextStyle(
                               fontSize: 14,
-                              fontFamily: fontFamily,
+                              fontFamily: fontFamily1,
                               fontWeight: FontWeight.w400,
                               color:
                                   _isHovering[3] ? Colors.grey[600] : myWhite2,
@@ -106,7 +107,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'Services',
                             style: TextStyle(
                               fontSize: 14,
-                              fontFamily: fontFamily,
+                              fontFamily: fontFamily1,
                               fontWeight: FontWeight.w400,
                               color:
                                   _isHovering[0] ? Colors.grey[600] : myWhite2,
@@ -136,7 +137,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[1] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TechWiki()),
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -144,7 +150,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             "TechWiki",
                             style: TextStyle(
                               fontSize: 14,
-                              fontFamily: fontFamily,
+                              fontFamily: fontFamily1,
                               fontWeight: FontWeight.w400,
                               color:
                                   _isHovering[1] ? Colors.grey[600] : myWhite2,
@@ -182,7 +188,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             "Let's Talk Business",
                             style: TextStyle(
                               fontSize: 14,
-                              fontFamily: fontFamily,
+                              fontFamily: fontFamily1,
                               fontWeight: FontWeight.w400,
                               color:
                                   _isHovering[2] ? Colors.grey[600] : myWhite2,

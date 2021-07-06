@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webapp/others/techwiki.dart';
 import 'package:webapp/theme.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
@@ -66,7 +67,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle: TextStyle(
                         fontSize: 15,
-                        fontFamily: fontFamily,
+                        fontFamily: fontFamily1,
                         fontWeight: FontWeight.w600)),
                 child: new Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +78,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     new Text('Call for Software Dev & Courses',
                         style: TextStyle(
                             fontSize: 14,
-                            fontFamily: fontFamily,
+                            fontFamily: fontFamily1,
                             fontWeight: FontWeight.w400,
                             color: myBlack3)),
                   ],
@@ -94,7 +95,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle: TextStyle(
                         fontSize: 15,
-                        fontFamily: fontFamily,
+                        fontFamily: fontFamily1,
                         fontWeight: FontWeight.w600)),
                 child: new Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +106,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     new Text('Call for Tech Services & Projects',
                         style: TextStyle(
                             fontSize: 14,
-                            fontFamily: fontFamily,
+                            fontFamily: fontFamily1,
                             fontWeight: FontWeight.w400,
                             color: myBlack3)),
                   ],
@@ -146,7 +147,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle: TextStyle(
                         fontSize: 15,
-                        fontFamily: fontFamily,
+                        fontFamily: fontFamily1,
                         fontWeight: FontWeight.w600)),
                 child: new Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -157,7 +158,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     new Text('Whatapp for Software Dev & Courses',
                         style: TextStyle(
                             fontSize: 14,
-                            fontFamily: fontFamily,
+                            fontFamily: fontFamily1,
                             fontWeight: FontWeight.w400,
                             color: myBlack3)),
                   ],
@@ -182,7 +183,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle: TextStyle(
                         fontSize: 15,
-                        fontFamily: fontFamily,
+                        fontFamily: fontFamily1,
                         fontWeight: FontWeight.w600)),
                 child: new Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -193,7 +194,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                     new Text('Whatsapp for Tech Services & Projects',
                         style: TextStyle(
                             fontSize: 14,
-                            fontFamily: fontFamily,
+                            fontFamily: fontFamily1,
                             fontWeight: FontWeight.w400,
                             color: myBlack3)),
                   ],
@@ -242,7 +243,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                   'About Us',
                   style: TextStyle(
                     fontSize: 14,
-                    fontFamily: fontFamily,
+                    fontFamily: fontFamily1,
                     fontWeight: FontWeight.w400,
                     color: _isHovering[4] ? Colors.grey[600] : Colors.black,
                   ),
@@ -269,7 +270,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                   'Services',
                   style: TextStyle(
                     fontSize: 14,
-                    fontFamily: fontFamily,
+                    fontFamily: fontFamily1,
                     fontWeight: FontWeight.w400,
                     color: _isHovering[0] ? Colors.grey[600] : Colors.black,
                   ),
@@ -288,12 +289,17 @@ class WebappDrawerState extends State<WebappDrawer> {
                     _isHovering[1] = value;
                   });
                 },
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TechWiki()),
+                  );
+                },
                 child: Text(
                   'TechWiki',
                   style: TextStyle(
                     fontSize: 14,
-                    fontFamily: fontFamily,
+                    fontFamily: fontFamily1,
                     fontWeight: FontWeight.w400,
                     color: _isHovering[1] ? Colors.grey[600] : Colors.black,
                   ),
@@ -317,7 +323,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                   'Let\'s Talk Business',
                   style: TextStyle(
                     fontSize: 14,
-                    fontFamily: fontFamily,
+                    fontFamily: fontFamily1,
                     fontWeight: FontWeight.w400,
                     color: _isHovering[2] ? Colors.grey[600] : Colors.black,
                   ),
@@ -341,7 +347,7 @@ class WebappDrawerState extends State<WebappDrawer> {
                   'Affiliates',
                   style: TextStyle(
                     fontSize: 14,
-                    fontFamily: fontFamily,
+                    fontFamily: fontFamily1,
                     fontWeight: FontWeight.w400,
                     color: _isHovering[3] ? Colors.grey[600] : Colors.black,
                   ),

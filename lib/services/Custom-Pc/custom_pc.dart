@@ -251,7 +251,7 @@ class _PcCustomState extends State<PcCustom> {
                                                         context)
                                                     ? 14
                                                     : width * 0.01,
-                                            fontFamily: fontFamily,
+                                            fontFamily: fontFamily1,
                                           ),
                                         )
                                       ],
@@ -275,7 +275,7 @@ class _PcCustomState extends State<PcCustom> {
                                                         context)
                                                     ? 14
                                                     : width * 0.01,
-                                            fontFamily: fontFamily,
+                                            fontFamily: fontFamily1,
                                           ),
                                         )
                                       ],
@@ -299,7 +299,7 @@ class _PcCustomState extends State<PcCustom> {
                                                         context)
                                                     ? 14
                                                     : width * 0.01,
-                                            fontFamily: fontFamily,
+                                            fontFamily: fontFamily1,
                                           ),
                                         )
                                       ],
@@ -323,7 +323,7 @@ class _PcCustomState extends State<PcCustom> {
                                                         context)
                                                     ? 14
                                                     : width * 0.01,
-                                            fontFamily: fontFamily,
+                                            fontFamily: fontFamily1,
                                           ),
                                         )
                                       ],
@@ -440,7 +440,7 @@ class _PcCustomState extends State<PcCustom> {
                                       ResponsiveWidget.isSmallScreen(context)
                                           ? 16
                                           : width * 0.02,
-                                  fontFamily: fontFamily,
+                                  fontFamily: fontFamily1,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),

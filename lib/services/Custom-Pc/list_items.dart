@@ -71,7 +71,7 @@ class _PopUpItemState extends State<PopUpItem> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
-                      fontFamily: fontFamily,
+                      fontFamily: fontFamily1,
                     ),
                   ),
                   AnimateIcons(
@@ -376,7 +376,7 @@ class _PopUpItemState extends State<PopUpItem> {
                                     ResponsiveWidget.isSmallScreen(context)
                                         ? 15
                                         : 18,
-                                fontFamily: fontFamily,
+                                fontFamily: fontFamily1,
                               ),
                             ),
                             onPressed: () {

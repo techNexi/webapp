@@ -13,19 +13,12 @@ environment:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  url_launcher: ^6.0.6
-  firebase_core: ^1.0.2
-  firebase_auth: ^1.0.1
-  google_sign_in: ^5.0.1
-  get: ^4.1.4
-  material_design_icons_flutter: ^4.0.5955
-  animate_icons: ^2.0.0
+  
 
 
   
 
-flutter:
+flutter: 
   uses-material-design: true
  
   assets:
@@ -37,6 +30,9 @@ flutter:
   
      
   fonts:
+    - family: Montserrat-Thin
+      fonts:
+        - asset: assets/fonts/Montserrat-Thin.ttf
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Regular.ttf
@@ -52,3 +48,17 @@ dependencies:
   whatsapp_unilink: ^2.0.0
   mailto: ^2.0.0
   animated_text_kit: ^4.2.1
+  cupertino_icons: ^1.0.2
+  url_launcher: ^6.0.6         # Launch Pragmagic Website
+  #firebase_core: ^1.0.2
+  #firebase_auth: ^1.0.1
+  get: ^4.1.4
+  material_design_icons_flutter: ^4.0.5955
+  animate_icons: ^2.0.0
+  flutter_neumorphic: ^3.1.0                 
+  flutter_form_builder: ^6.0.1            # Validates Forms
+  cloud_firestore: ^2.2.0                 # To use the Cloud Firestore API.
+  #firebase_core: ^1.2.0                   # Setup Firebase and helps to use FB products
+  #google_sign_in: ^5.0.4                  # Sign in with Google
+  #firebase_auth: ^1.2.0                   # Sign in with Email Password/Username Password
+  cool_alert: ^1.1.0                      # Show request update alert

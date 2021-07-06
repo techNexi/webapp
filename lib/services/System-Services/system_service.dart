@@ -167,7 +167,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: fontFamily,
+                                  fontFamily: fontFamily1,
                                   fontSize:
                                       ResponsiveWidget.isSmallScreen(context)
                                           ? 16
@@ -218,7 +218,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                           style: TextStyle(
                                               fontWeight: FontWeight.w700,
                                               color: Colors.black87,
-                                              fontFamily: fontFamily,
+                                              fontFamily: fontFamily1,
                                               fontSize: ResponsiveWidget
                                                       .isSmallScreen(context)
                                                   ? 16
@@ -268,7 +268,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black87,
-                                      fontFamily: fontFamily,
+                                      fontFamily: fontFamily1,
                                       fontSize: ResponsiveWidget.isSmallScreen(
                                               context)
                                           ? 16
@@ -280,7 +280,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                     'Free first online basic service.\n',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -296,7 +296,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                     'Online PC repair and resolutioning OS issues.\n',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -311,7 +311,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'Replacement of Hardware parts.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -326,7 +326,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'Removal of Virus and threat file from system.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -341,7 +341,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'Computer troubleshooting for slow PC and laptop speed.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -356,7 +356,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'Installation and configuration of other computer connected devices.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -371,7 +371,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'Installation and uninstallation of various software applications.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -386,7 +386,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'Installation and set-up of hardware drivers  for best system performance.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:
@@ -401,7 +401,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                   child: Text(
                                     'On Field engineer support for PC and laptop in Bangalore region.\n',
                                     style: TextStyle(
-                                        fontFamily: fontFamily,
+                                        fontFamily: fontFamily1,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
                                         fontSize:

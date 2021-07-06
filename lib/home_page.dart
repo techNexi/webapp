@@ -1,9 +1,13 @@
+import 'dart:ui';
+
+import 'package:webapp/misc/hover.dart';
 import 'package:webapp/theme.dart';
 import 'package:webapp/web_scrollbar.dart';
 import 'package:webapp/drawer_small.dart';
 import 'package:webapp/responsive.dart';
 import 'package:webapp/nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/';
@@ -45,11 +49,11 @@ class _HomePageState extends State<HomePage> {
         _scrollPosition < height * 0.40 ? _scrollPosition / (height * 0.40) : 1;
 
     return Scaffold(
-      backgroundColor: myWhite1,
+      backgroundColor: myBlack4,
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
-              iconTheme: IconThemeData(color: myBlack3),
+              iconTheme: IconThemeData(color: myWhite3),
               backgroundColor:
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
               elevation: _opacity,
@@ -57,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               title: Text(
                 'TechNEXI',
                 style: TextStyle(
-                  color: myBlack3,
+                  color: myWhite1,
                   fontSize: 18,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w600,
@@ -72,7 +76,7 @@ class _HomePageState extends State<HomePage> {
       drawer: WebappDrawer(),
       body: WebScrollbar(
         color: Colors.grey,
-        backgroundColor: myWhite1,
+        backgroundColor: myWhite3,
         width: 10,
         heightFraction: 0.3,
         controller: _scrollController,
@@ -86,15 +90,13 @@ class _HomePageState extends State<HomePage> {
                       ? height * 0.17
                       : height * 0.23),
               Text(
-                "SERVICE  BEYOND  COMPROMISE",
+                "SERVICE  BEYOND\nCOMPROMISE".toLowerCase(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: myBlack2,
-                  fontSize: ResponsiveWidget.isSmallScreen(context) ? 22 : 38,
-                  fontFamily: 'Montserrat',
-                  fontWeight: ResponsiveWidget.isSmallScreen(context)
-                      ? FontWeight.w600
-                      : FontWeight.w800,
+                  color: myWhite3,
+                  fontSize: ResponsiveWidget.isSmallScreen(context) ? 35 : 80,
+                  fontFamily: fontFamily2,
+                  fontWeight: FontWeight.bold,
                   letterSpacing: 3,
                 ),
               ),
@@ -109,33 +111,206 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'ABOUT US\n',
+                          'Who We Are'.toLowerCase(),
                           style: TextStyle(
-                            color: myBlack1,
+                            color: myWhite3,
                             fontSize: ResponsiveWidget.isSmallScreen(context)
-                                ? 18
-                                : 32,
+                                ? 20
+                                : 55,
                             fontFamily: fontFamily2,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
                           ),
                         ),
                         Text(
-                          'from bold ideas to successful digital products via creating future-ready apps, websites and digital solutions. We also provide expertised Tech solutions and services.',
+                          '\nfrom bold ideas to successful digital products via creating future-ready apps, websites and digital solutions. We also provide expertised Tech solutions and services.',
                           style: TextStyle(
-                            color: myBlack2,
+                            color: myWhite3.withOpacity(0.7),
                             fontSize: ResponsiveWidget.isSmallScreen(context)
-                                ? 13
-                                : 20,
+                                ? 10
+                                : 15,
+                            fontFamily: fontFamily1a,
                             fontWeight: ResponsiveWidget.isSmallScreen(context)
-                                ? FontWeight.w300
-                                : FontWeight.w400,
+                                ? FontWeight.w100
+                                : FontWeight.w100,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                        SizedBox(height: height * 0.16),
+                        Text(
+                          'Services we offer'.toLowerCase(),
+                          style: TextStyle(
+                            color: myWhite3,
+                            fontSize: ResponsiveWidget.isSmallScreen(context)
+                                ? 20
+                                : 55,
+                            fontFamily: fontFamily2,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                        Text(
+                          '\nwe have a wide range of tech and software services that an entrepreneurship needs.',
+                          style: TextStyle(
+                            color: myWhite3.withOpacity(0.7),
+                            fontSize: ResponsiveWidget.isSmallScreen(context)
+                                ? 10
+                                : 15,
+                            fontFamily: fontFamily1a,
+                            fontWeight: ResponsiveWidget.isSmallScreen(context)
+                                ? FontWeight.w100
+                                : FontWeight.w100,
                             letterSpacing: 2,
                           ),
                         ),
                       ],
                     ),
                   ),
+                ),
+              ),
+              SizedBox(height: height / 6),
+              Padding(
+                padding: EdgeInsets.only(left: width / 10.0, right: width / 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        SizedBox(height: height * 0.1),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            gradient: new LinearGradient(
+                                colors: [Colors.greenAccent, myBlack4],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [0.0, 1.0],
+                                tileMode: TileMode.clamp),
+                          ),
+                          width: width / 3,
+                          height: height / 1.5,
+                          child: Padding(
+                            padding: const EdgeInsets.all(38.0),
+                            child: HoverImage(
+                              child: Image.asset(
+                                "assets/images/service/mob.png",
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: height * 0.1),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            gradient: new LinearGradient(
+                                colors: [Color(0x55fefefe), myBlack4],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [0.0, 1.0],
+                                tileMode: TileMode.clamp),
+                          ),
+                          width: width / 3,
+                          height: height / 1.5,
+                          child: Padding(
+                            padding: const EdgeInsets.all(38.0),
+                            child: HoverImage(
+                              child: Image.asset(
+                                "assets/images/service/mac.png",
+                                width: width / 50,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: height * 0.1),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            gradient: new LinearGradient(
+                                colors: [Color(0xff6fa8ab), myBlack4],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [0.0, 1.0],
+                                tileMode: TileMode.clamp),
+                          ),
+                          width: width / 3,
+                          height: height / 1.5,
+                          child: HoverImage(
+                            child: Image.asset(
+                              "assets/images/service/cpu.png",
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            gradient: new LinearGradient(
+                                colors: [Color(0xffdc3f73), myBlack4],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [0.0, 1.0],
+                                tileMode: TileMode.clamp),
+                          ),
+                          width: width / 3,
+                          height: height / 1.5,
+                          child: Padding(
+                            padding: const EdgeInsets.all(38.0),
+                            child: HoverImage(
+                              child: Image.asset(
+                                "assets/images/service/mob.png",
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: height * 0.1),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            gradient: new LinearGradient(
+                                colors: [Colors.lime, myBlack4],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [0.0, 1.0],
+                                tileMode: TileMode.clamp),
+                          ),
+                          width: width / 3,
+                          height: height / 1.5,
+                          child: Padding(
+                            padding: const EdgeInsets.all(38.0),
+                            child: HoverImage(
+                              child: Image.asset(
+                                "assets/images/service/mac.png",
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: height * 0.1),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            gradient: new LinearGradient(
+                                colors: [Colors.red, myBlack4],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                stops: [0.0, 1.0],
+                                tileMode: TileMode.clamp),
+                          ),
+                          width: width / 3,
+                          height: height / 1.5,
+                          child: HoverImage(
+                            child: Image.asset(
+                              "assets/images/service/cpu.png",
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               Container(height: height)

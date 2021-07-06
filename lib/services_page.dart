@@ -85,7 +85,7 @@ class _ServicesPageState extends State<ServicesPage> {
                   fontSize: ResponsiveWidget.isSmallScreen(context)
                       ? 40
                       : width * 0.05,
-                  fontFamily: fontFamily2,
+                  fontFamily: fontFamily1,
                   fontWeight: FontWeight.bold)),
         ),
         Padding(
@@ -96,7 +96,7 @@ class _ServicesPageState extends State<ServicesPage> {
               "System service is practice of keeping computer in good state of repair. PC or laptop running any version needs frequent maintenance and updating.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: fontFamily,
+                  fontFamily: fontFamily1,
                   fontSize: ResponsiveWidget.isSmallScreen(context)
                       ? 14
                       : width * 0.016),
@@ -121,7 +121,7 @@ class _ServicesPageState extends State<ServicesPage> {
                       "TechNEXI provides specialized and advanced application development services. We create intriguing apps with the captivative interfaces and wide range features. We develop apps according to your requirements for a reasonable price. ",
                       textAlign: TextAlign.end,
                       style: TextStyle(
-                          fontFamily: fontFamily,
+                          fontFamily: fontFamily1,
                           fontSize: ResponsiveWidget.isSmallScreen(context)
                               ? 14
                               : width * 0.016),

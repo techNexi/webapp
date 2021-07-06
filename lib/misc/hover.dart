@@ -2,9 +2,9 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
 class HoverImage extends StatefulWidget {
-  final String image;
+  final Widget child;
 
-  HoverImage({this.image});
+  HoverImage({this.child});
 
   @override
   _HoverImageState createState() => _HoverImageState();
@@ -48,29 +48,23 @@ class _HoverImageState extends State<HoverImage>
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          boxShadow: [
+          /* boxShadow: [
             BoxShadow(
               color: Colors.black26,
               offset: Offset(0.0, 20.0),
               spreadRadius: -10.0,
               blurRadius: 20.0,
             )
-          ],
+          ],*/
         ),
         child: Container(
-          height: 220.0,
-          width: 170.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          clipBehavior: Clip.hardEdge,
-          transform: Matrix4(_animation.value, 0, 0, 0, 0, _animation.value, 0,
-              0, 0, 0, 1, 0, padding.value, padding.value, 0, 1),
-          child: Image.network(
-            widget.image,
-            fit: BoxFit.cover,
-          ),
-        ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            clipBehavior: Clip.hardEdge,
+            transform: Matrix4(_animation.value, 0, 0, 0, 0, _animation.value,
+                0, 0, 0, 0, 1, 0, padding.value, padding.value, 0, 1),
+            child: widget.child),
       ),
     );
   }
