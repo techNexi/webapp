@@ -179,15 +179,15 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         SizedBox(height: height * 0.1),
                         Container(
-                          decoration: BoxDecoration(
+                          /*  decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25.0),
                             gradient: new LinearGradient(
-                                colors: [Colors.greenAccent, myBlack4],
+                                colors: [Color(0x55fefefe), myBlack4],
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 stops: [0.0, 1.0],
                                 tileMode: TileMode.clamp),
-                          ),
+                          ),*/
                           width: width / 3,
                           height: height / 1.5,
                           child: Padding(
@@ -201,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: height * 0.1),
                         Container(
-                          decoration: BoxDecoration(
+                          /* decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25.0),
                             gradient: new LinearGradient(
                                 colors: [Color(0x55fefefe), myBlack4],
@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                                 end: Alignment.bottomCenter,
                                 stops: [0.0, 1.0],
                                 tileMode: TileMode.clamp),
-                          ),
+                          ),*/
                           width: width / 3,
                           height: height / 1.5,
                           child: Padding(
@@ -224,15 +224,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: height * 0.1),
                         Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                                colors: [Color(0xff6fa8ab), myBlack4],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),
                           width: width / 3,
                           height: height / 1.5,
                           child: HoverImage(
@@ -247,15 +238,6 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                                colors: [Color(0xffdc3f73), myBlack4],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),
                           width: width / 3,
                           height: height / 1.5,
                           child: Padding(
@@ -269,15 +251,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: height * 0.1),
                         Container(
-                          decoration: BoxDecoration(
+                          /*  decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25.0),
                             gradient: new LinearGradient(
-                                colors: [Colors.lime, myBlack4],
+                                colors: [Color(0x55fefefe), myBlack4],
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 stops: [0.0, 1.0],
                                 tileMode: TileMode.clamp),
-                          ),
+                          ),*/
                           width: width / 3,
                           height: height / 1.5,
                           child: Padding(
@@ -291,15 +273,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: height * 0.1),
                         Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                                colors: [Colors.red, myBlack4],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),
                           width: width / 3,
                           height: height / 1.5,
                           child: HoverImage(

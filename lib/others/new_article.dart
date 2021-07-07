@@ -32,6 +32,7 @@ class _NewArticleState extends State<NewArticle> {
       'createdOn': formattedDateNow,
       'image': value["image"],
       'imageAdded': imageAdded,
+      'postedBy': value["postedBy"],
       'title': value["title"],
       'topic': value["topic"],
       'trending': false,
@@ -165,6 +166,28 @@ class _NewArticleState extends State<NewArticle> {
                       ),
                     ),
                     Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FormBuilderTextField(
+                        name: "postedBy",
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelStyle: TextStyle(color: myBlack1),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myBlack1, width: 2.0),
+                          ),
+                          border: OutlineInputBorder(),
+                          labelText: 'Article Written By',
+                        ),
+
+                        // valueTransformer: (text) => num.tryParse(text),
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.max(context, 20),
+                          FormBuilderValidators.required(context),
+                        ]),
+                        keyboardType: TextInputType.name,
+                      ),
+                    ),
+                    Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: CheckboxListTile(
                         value: imageAdded,
@@ -178,6 +201,7 @@ class _NewArticleState extends State<NewArticle> {
                             .leading, //  <-- leading Checkbox
 
                         title: FormBuilderTextField(
+                          enabled: imageAdded,
                           name: "image",
                           decoration: InputDecoration(
                             isDense: true,
@@ -217,6 +241,7 @@ class _NewArticleState extends State<NewArticle> {
                             .leading, //  <-- leading Checkbox
 
                         title: FormBuilderTextField(
+                          enabled: videoAdded,
                           name: "video",
                           decoration: InputDecoration(
                             isDense: true,
