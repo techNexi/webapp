@@ -63,6 +63,7 @@ dependencies:
   #firebase_auth: ^1.2.0                   # Sign in with Email Password/Username Password
   cool_alert: ^1.1.0                      # Show request update alert
   flutter_launcher_icons: ^0.9.0          #App Icon "flutter pub run flutter_launcher_icons:main"
+  youtube_player_flutter: ^8.0.0
 
 flutter_icons:
  android: true

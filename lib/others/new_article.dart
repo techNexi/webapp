@@ -28,6 +28,7 @@ class _NewArticleState extends State<NewArticle> {
 
     await FirebaseFirestore.instance.collection('tech-wiki').doc().set({
       'authorized': false,
+      'attachments': value["attachments"],
       'body': value["body"],
       'createdOn': formattedDateNow,
       'image': value["image"],
@@ -85,7 +86,6 @@ class _NewArticleState extends State<NewArticle> {
                             return const Center(
                               child: CupertinoActivityIndicator(),
                             );
-
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: FormBuilderDropdown(
@@ -157,12 +157,33 @@ class _NewArticleState extends State<NewArticle> {
                           border: OutlineInputBorder(),
                           labelText: 'Body',
                         ),
-
                         // valueTransformer: (text) => num.tryParse(text),
                         validator: FormBuilderValidators.compose([
                           FormBuilderValidators.max(context, 1000),
                           FormBuilderValidators.required(context),
                         ]),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FormBuilderTextField(
+                        name: "attachments",
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelStyle: TextStyle(color: myBlack1),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: myBlack1, width: 2.0),
+                          ),
+                          border: OutlineInputBorder(),
+                          labelText: 'Attachments and Links',
+                        ),
+
+                        // valueTransformer: (text) => num.tryParse(text),
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.max(context, 40),
+                          FormBuilderValidators.required(context),
+                        ]),
+                        keyboardType: TextInputType.name,
                       ),
                     ),
                     Padding(
