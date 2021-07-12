@@ -4,6 +4,7 @@ const String fontFamily1 = 'Montserrat';
 const String fontFamily2 = "Walkway";
 const String fontFamily1a = "Montserrat-Thin";
 const String fontFamily3 = "Electrolize";
+const String bodyFont = "Dosis";
 
 const Color myBlack1 = Color(0xff202125);
 const Color myBlack2 = Color(0xff35363b);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webapp/others/techwiki.dart';
+import 'package:webapp/techwiki/techwiki.dart';
 import 'package:webapp/theme.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';

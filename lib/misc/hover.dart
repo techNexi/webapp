@@ -23,9 +23,9 @@ class _HoverImageState extends State<HoverImage>
       duration: Duration(milliseconds: 275),
       vsync: this,
     );
-    _animation = Tween(begin: 1.0, end: 1.2).animate(CurvedAnimation(
+    _animation = Tween(begin: 1.0, end: 1.05).animate(CurvedAnimation(
         parent: _controller, curve: Curves.ease, reverseCurve: Curves.easeIn));
-    padding = Tween(begin: 0.0, end: -25.0).animate(CurvedAnimation(
+    padding = Tween(begin: 0.0, end: -5.0).animate(CurvedAnimation(
         parent: _controller, curve: Curves.ease, reverseCurve: Curves.easeIn));
     _controller.addListener(() {
       setState(() {});

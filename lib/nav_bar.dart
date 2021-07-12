@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:webapp/home_page.dart';
-import 'package:webapp/others/techwiki.dart';
+import 'package:webapp/techWiki/techwiki.dart';
 import 'package:webapp/theme.dart';
 
 class TopBarContents extends StatefulWidget {

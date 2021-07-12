@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:webapp/home_page.dart';
-import 'package:webapp/others/new_article.dart';
+import 'package:webapp/techWiki/new_article.dart';
+import 'package:webapp/responsive.dart';
 import 'package:webapp/theme.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TechWiki extends StatefulWidget {
   const TechWiki({Key key}) : super(key: key);
@@ -42,12 +42,12 @@ class _TechWikiState extends State<TechWiki> {
                     Padding(
                       padding: const EdgeInsets.only(top: 30.0),
                       child: Image.asset(
-                        "assets/empty.png",
+                        "assets/images/empty.png",
                         height: 300,
                       ),
                     ),
                     Text(
-                      "No Articless Found",
+                      "No Articless Found\nPlease Refresh or Try Again Later",
                       style: TextStyle(
                           fontFamily: fontFamily1,
                           fontSize: 25,
@@ -59,28 +59,18 @@ class _TechWikiState extends State<TechWiki> {
             );
           } else {
             return ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: snapshot.data.size,
               itemBuilder: (context, index) {
                 String title = snapshot.data.docs[index].get('title');
                 String body = snapshot.data.docs[index].get('body');
-                bool imageAdded = snapshot.data.docs[index].get('imageAdded');
                 String image = snapshot.data.docs[index].get('image') ?? '';
-                bool videoAdded = snapshot.data.docs[index].get('videoAdded');
                 String video = snapshot.data.docs[index].get('video') ?? '';
                 String createdOn = snapshot.data.docs[index].get('createdOn');
                 String postedBy = snapshot.data.docs[index].get('postedBy');
                 bool authorized = snapshot.data.docs[index].get('authorized');
                 bool trending = snapshot.data.docs[index].get('trending');
-                String videoId = YoutubePlayer.convertUrlToId(video);
-                YoutubePlayerController _controller = YoutubePlayerController(
-                  initialVideoId: 'iLnmTe5Q2Qw',
-                  flags: YoutubePlayerFlags(
-                    autoPlay: false,
-                    mute: true,
-                  ),
-                );
-
                 return Padding(
                     padding: EdgeInsets.all(25),
                     child: Neumorphic(
@@ -107,7 +97,9 @@ class _TechWikiState extends State<TechWiki> {
                                       ),
                                     ),
                                     Text(
-                                      '\n',
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? ""
+                                          : '\n',
                                       style: TextStyle(
                                         color: myBlack3.withAlpha(200),
                                         fontSize: 24,
@@ -115,38 +107,39 @@ class _TechWikiState extends State<TechWiki> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? Padding(
+                                            padding: const EdgeInsets.all(20.0),
+                                            child: image != ''
+                                                ? Align(
+                                                    alignment: Alignment.center,
+                                                    child: Image.network(image))
+                                                : SizedBox.shrink(),
+                                          )
+                                        : SizedBox.shrink(),
                                     Text(
                                       body,
                                       style: TextStyle(
-                                        color: myBlack2,
-                                        fontSize: 12,
+                                        fontFamily: bodyFont,
+                                        color: myBlack1,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w800,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Expanded(
-                                flex: 1,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      imageAdded
-                                          ? Image.network(image)
-                                          : SizedBox.shrink(),
-                                      videoAdded
-                                          ? YoutubePlayer(
-                                              controller: _controller,
-                                              showVideoProgressIndicator: true,
-                                            )
-                                          : SizedBox.shrink(),
-                                    ],
-                                  ),
-                                ),
-                              )
+                              ResponsiveWidget.isSmallScreen(context)
+                                  ? SizedBox.shrink()
+                                  : Expanded(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(20.0),
+                                        child: image != ''
+                                            ? Image.network(image)
+                                            : SizedBox.shrink(),
+                                      ),
+                                    )
                             ],
                           )),
                     ));
@@ -165,7 +158,18 @@ class _TechWikiState extends State<TechWiki> {
     return Scaffold(
       appBar: AppBar(
         title: TextButton(
-          child: Image.asset("assets/images/logo.png", width: 180),
+          child: ResponsiveWidget.isSmallScreen(context)
+              ? Text(
+                  'TechWIKI',
+                  style: TextStyle(
+                    color: myBlack2,
+                    fontSize: 18,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 3,
+                  ),
+                )
+              : Image.asset("assets/images/logo.png", width: 180),
           onPressed: () {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (_) => HomePage()));
@@ -206,59 +210,62 @@ class _TechWikiState extends State<TechWiki> {
       ),
       body: Row(
         children: [
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: Icon(
-                      Icons.favorite_outline_outlined,
-                      size: 20,
-                    ),
-                    title: Text(
-                      'recommended',
-                      style: TextStyle(
-                        color: myBlack2,
-                        fontSize: 17,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
+          ResponsiveWidget.isSmallScreen(context)
+              ? SizedBox.shrink()
+              : Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: ListView(
+                      children: [
+                        ListTile(
+                          leading: Icon(
+                            Icons.favorite_outline_outlined,
+                            size: 20,
+                          ),
+                          title: Text(
+                            'recommended',
+                            style: TextStyle(
+                              color: myBlack2,
+                              fontSize: 17,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.favorite_outline_outlined),
+                          title: Text(
+                            'recommended',
+                            style: TextStyle(
+                              color: myBlack2,
+                              fontSize: 17,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.favorite_outline_outlined),
+                          title: Text(
+                            'recommended',
+                            style: TextStyle(
+                              color: myBlack2,
+                              fontSize: 17,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  ListTile(
-                    leading: Icon(Icons.favorite_outline_outlined),
-                    title: Text(
-                      'recommended',
-                      style: TextStyle(
-                        color: myBlack2,
-                        fontSize: 17,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.favorite_outline_outlined),
-                    title: Text(
-                      'recommended',
-                      style: TextStyle(
-                        color: myBlack2,
-                        fontSize: 17,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+                ),
           Expanded(
             flex: 4,
             child: SingleChildScrollView(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(

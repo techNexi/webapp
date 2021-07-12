@@ -127,16 +127,16 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             color: myWhite3.withOpacity(0.7),
                             fontSize: ResponsiveWidget.isSmallScreen(context)
-                                ? 10
-                                : 15,
-                            fontFamily: fontFamily1a,
+                                ? 12
+                                : 18,
+                            fontFamily: bodyFont,
                             fontWeight: ResponsiveWidget.isSmallScreen(context)
-                                ? FontWeight.w100
-                                : FontWeight.w100,
+                                ? FontWeight.w200
+                                : FontWeight.w200,
                             letterSpacing: 2,
                           ),
                         ),
-                        SizedBox(height: height * 0.16),
+                        SizedBox(height: height * 0.2),
                         Text(
                           'Services we offer'.toLowerCase(),
                           style: TextStyle(
@@ -154,12 +154,12 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             color: myWhite3.withOpacity(0.7),
                             fontSize: ResponsiveWidget.isSmallScreen(context)
-                                ? 10
-                                : 15,
-                            fontFamily: fontFamily1a,
+                                ? 12
+                                : 18,
+                            fontFamily: bodyFont,
                             fontWeight: ResponsiveWidget.isSmallScreen(context)
-                                ? FontWeight.w100
-                                : FontWeight.w100,
+                                ? FontWeight.w200
+                                : FontWeight.w200,
                             letterSpacing: 2,
                           ),
                         ),
@@ -168,125 +168,227 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: height / 6),
               Padding(
-                padding: EdgeInsets.only(left: width / 10.0, right: width / 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(height: height * 0.1),
-                        Container(
-                          /*  decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                                colors: [Color(0x55fefefe), myBlack4],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),*/
-                          width: width / 3,
-                          height: height / 1.5,
-                          child: Padding(
-                            padding: const EdgeInsets.all(38.0),
-                            child: HoverImage(
-                              child: Image.asset(
-                                "assets/images/service/mob.png",
+                padding: EdgeInsets.only(
+                    bottom: height / 8,
+                    top: height / 8,
+                    left: width / 20.0,
+                    right: width / 20),
+                child: Wrap(
+                    runSpacing: height / 8,
+                    spacing: 10,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    alignment: WrapAlignment.spaceAround,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: height / 2.3,
+                            child: Padding(
+                              padding: const EdgeInsets.all(38.0),
+                              child: HoverImage(
+                                child: Image.asset(
+                                  "assets/images/service/web.png",
+                                  fit: BoxFit.fitWidth,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: height * 0.1),
-                        Container(
-                          /* decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                                colors: [Color(0x55fefefe), myBlack4],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),*/
-                          width: width / 3,
-                          height: height / 1.5,
-                          child: Padding(
-                            padding: const EdgeInsets.all(38.0),
-                            child: HoverImage(
-                              child: Image.asset(
-                                "assets/images/service/mac.png",
-                                width: width / 50,
+                          Text(
+                            "Web Development",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: myWhite3,
+                              fontSize: ResponsiveWidget.isSmallScreen(context)
+                                  ? 20
+                                  : 40,
+                              fontFamily: fontFamily2,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: height / 2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(38.0),
+                              child: HoverImage(
+                                child: Image.asset(
+                                  "assets/images/service/app.png",
+                                  fit: BoxFit.fitWidth,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: height * 0.1),
-                        Container(
-                          width: width / 3,
-                          height: height / 1.5,
-                          child: HoverImage(
-                            child: Image.asset(
-                              "assets/images/service/cpu.png",
+                          Text(
+                            "App Development",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: myWhite3,
+                              fontSize: ResponsiveWidget.isSmallScreen(context)
+                                  ? 20
+                                  : 40,
+                              fontFamily: fontFamily2,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: width / 3,
-                          height: height / 1.5,
-                          child: Padding(
-                            padding: const EdgeInsets.all(38.0),
-                            child: HoverImage(
-                              child: Image.asset(
-                                "assets/images/service/mob.png",
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: height * 0.1),
-                        Container(
-                          /*  decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                                colors: [Color(0x55fefefe), myBlack4],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),*/
-                          width: width / 3,
-                          height: height / 1.5,
-                          child: Padding(
-                            padding: const EdgeInsets.all(38.0),
-                            child: HoverImage(
-                              child: Image.asset(
-                                "assets/images/service/mac.png",
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: height * 0.1),
-                        Container(
-                          width: width / 3,
-                          height: height / 1.5,
-                          child: HoverImage(
-                            child: Image.asset(
-                              "assets/images/service/cpu.png",
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ]),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: width / 7, left: width / 7),
+                child: Divider(
+                  height: 1,
+                  thickness: 1,
+                  color: Colors.grey[800],
                 ),
               ),
-              Container(height: height)
+              Padding(
+                padding: EdgeInsets.only(
+                    bottom: height / 8,
+                    top: height / 12,
+                    left: width / 20.0,
+                    right: width / 20),
+                child: Wrap(
+                    runSpacing: height / 9,
+                    spacing: width / 7,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    alignment: WrapAlignment.spaceAround,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            /*  decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25.0),
+                                gradient: new LinearGradient(
+                                    colors: [Color(0x55fefefe), myBlack4],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    stops: [0.0, 1.0],
+                                    tileMode: TileMode.clamp),
+                              ),*/
+                            width: width / 4.2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(38.0),
+                              child: HoverImage(
+                                child: Image.asset(
+                                  "assets/images/service/cpu.png",
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "PC Customization",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: myWhite3,
+                              fontSize: ResponsiveWidget.isSmallScreen(context)
+                                  ? 20
+                                  : 40,
+                              fontFamily: fontFamily2,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: width / 4.2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(38.0),
+                              child: HoverImage(
+                                child: Image.asset(
+                                  "assets/images/service/mac.png",
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "System Services",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: myWhite3,
+                              fontSize: ResponsiveWidget.isSmallScreen(context)
+                                  ? 20
+                                  : 40,
+                              fontFamily: fontFamily2,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: width / 4.2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(38.0),
+                              child: HoverImage(
+                                child: Image.asset(
+                                  "assets/images/service/mob.png",
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Mobile Services",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: myWhite3,
+                              fontSize: ResponsiveWidget.isSmallScreen(context)
+                                  ? 20
+                                  : 40,
+                              fontFamily: fontFamily2,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: width / 4.2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(38.0),
+                              child: HoverImage(
+                                child: Image.asset(
+                                  "assets/images/service/arduino.png",
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Projects & Courses",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: myWhite3,
+                              fontSize: ResponsiveWidget.isSmallScreen(context)
+                                  ? 20
+                                  : 40,
+                              fontFamily: fontFamily2,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+              ),
             ],
           ),
         ),
@@ -487,7 +589,7 @@ class _HomePageState extends State<HomePage> {
                                             children: [
                                               SizedBox(
                                                 height: screenSize.width / 6,
-                                                width: screenSize.width / 3.8,
+                                                width: screenSize. width/4.2,
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(
