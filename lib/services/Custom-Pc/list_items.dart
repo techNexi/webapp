@@ -39,6 +39,13 @@ class _PopUpItemState extends State<PopUpItem> {
     return null;
   }
 
+  String validate(String value) {
+    if (value.trim().isEmpty && value.trim().length < 10) {
+      return 'Please enter a description of few lines';
+    }
+    return null;
+  }
+
   String validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -121,7 +128,8 @@ class _PopUpItemState extends State<PopUpItem> {
             duration: Duration(milliseconds: 600),
             child: expandedItem1
                 ? Padding(
-                    padding: EdgeInsets.only(top: height * 0.02),
+                    padding: EdgeInsets.only(
+                        top: height * 0.02, bottom: height * 0.1),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -292,6 +300,8 @@ class _PopUpItemState extends State<PopUpItem> {
                                     )
                                   : SizedBox.shrink(),
                               TextFormField(
+                                validator: validatePhoneNumber,
+                                style: TextStyle(color: Colors.white),
                                 onSaved: (value) {
                                   _emailId = value;
                                 },
@@ -321,6 +331,7 @@ class _PopUpItemState extends State<PopUpItem> {
                                     const EdgeInsets.only(top: 15, bottom: 0),
                                 //padding: EdgeInsets.symmetric(horizontal: 15),
                                 child: TextFormField(
+                                  style: TextStyle(color: Colors.white),
                                   validator: validatePhoneNumber,
                                   onSaved: (value) {
                                     _password = value;
@@ -382,6 +393,7 @@ class _PopUpItemState extends State<PopUpItem> {
                             onPressed: () {
                               if (_formStateKey1.currentState.validate()) {
                                 _formStateKey1.currentState.save();
+                                _formStateKey1.currentState.reset();
                               }
                             },
                           ),
