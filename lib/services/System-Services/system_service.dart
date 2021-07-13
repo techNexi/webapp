@@ -14,8 +14,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:mailto/mailto.dart';
 
 class SysytemServices extends StatefulWidget {
-  const SysytemServices({Key key, this.title}) : super(key: key);
-  final String title;
+  const SysytemServices({Key key}) : super(key: key);
 
   @override
   _SysytemServicesState createState() => _SysytemServicesState();
@@ -89,7 +88,7 @@ class _SysytemServicesState extends State<SysytemServices> {
               title: Text(
                 'TechNEXI',
                 style: TextStyle(
-                  color: Colors.blueGrey[100],
+                  color: myBlack3,
                   fontSize: 20,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
@@ -144,7 +143,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                                 ? 25
                                 : 45,
                           ),
-                          child: Text("${widget.title}",
+                          child: Text("System Services",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   letterSpacing: 2,
@@ -455,13 +454,14 @@ class _SysytemServicesState extends State<SysytemServices> {
                 padding: EdgeInsets.all(width * 0.005),
                 child: SingleChildScrollView(
                   child: Column(
+                    mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
                           color: Colors.black,
                           iconSize: ResponsiveWidget.isSmallScreen(context)
-                              ? 30
+                              ? 28
                               : width * 0.03,
                           icon: Icon(Icons.phone),
                           onPressed: () {
@@ -472,7 +472,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                       IconButton(
                         color: Colors.black,
                         iconSize: ResponsiveWidget.isSmallScreen(context)
-                            ? 30
+                            ? 28
                             : width * 0.03,
                         icon: Icon(Icons.email),
                         onPressed: () async {
@@ -491,7 +491,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                       IconButton(
                         color: Colors.black,
                         iconSize: ResponsiveWidget.isSmallScreen(context)
-                            ? 30
+                            ? 28
                             : width * 0.03,
                         // Use the MdiIcons class for the IconData
                         icon: new Icon(MdiIcons.whatsapp),
@@ -509,7 +509,7 @@ class _SysytemServicesState extends State<SysytemServices> {
                       IconButton(
                           color: Colors.black,
                           iconSize: ResponsiveWidget.isSmallScreen(context)
-                              ? 30
+                              ? 28
                               : width * 0.03,
                           icon: new Icon(MdiIcons.instagram),
                           onPressed: () {

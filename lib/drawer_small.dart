@@ -75,12 +75,14 @@ class WebappDrawerState extends State<WebappDrawer> {
                   children: <Widget>[
                     new Icon(Icons.call, color: myBlack3, size: 20),
                     SizedBox(width: 5),
-                    new Text('Call for Software Dev & Courses',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: fontFamily1,
-                            fontWeight: FontWeight.w400,
-                            color: myBlack3)),
+                    Expanded(
+                      child: new Text('Call for Software Dev & Courses',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: fontFamily1,
+                              fontWeight: FontWeight.w400,
+                              color: myBlack3)),
+                    ),
                   ],
                 ),
               ),
@@ -103,12 +105,14 @@ class WebappDrawerState extends State<WebappDrawer> {
                   children: <Widget>[
                     new Icon(Icons.call, color: myBlack3, size: 20),
                     SizedBox(width: 5),
-                    new Text('Call for Tech Services & Projects',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: fontFamily1,
-                            fontWeight: FontWeight.w400,
-                            color: myBlack3)),
+                    Expanded(
+                      child: new Text('Call for Tech Services & Projects',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: fontFamily1,
+                              fontWeight: FontWeight.w400,
+                              color: myBlack3)),
+                    ),
                   ],
                 ),
               ),
@@ -155,12 +159,14 @@ class WebappDrawerState extends State<WebappDrawer> {
                   children: <Widget>[
                     new Icon(MdiIcons.whatsapp, color: myBlack3, size: 20),
                     SizedBox(width: 5),
-                    new Text('Whatapp for Software Dev & Courses',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: fontFamily1,
-                            fontWeight: FontWeight.w400,
-                            color: myBlack3)),
+                    Expanded(
+                      child: new Text('Whatapp for Software Dev & Courses',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: fontFamily1,
+                              fontWeight: FontWeight.w400,
+                              color: myBlack3)),
+                    ),
                   ],
                 ),
               ),
@@ -191,12 +197,14 @@ class WebappDrawerState extends State<WebappDrawer> {
                   children: <Widget>[
                     new Icon(MdiIcons.whatsapp, color: myBlack3, size: 20),
                     SizedBox(width: 5),
-                    new Text('Whatsapp for Tech Services & Projects',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: fontFamily1,
-                            fontWeight: FontWeight.w400,
-                            color: myBlack3)),
+                    Expanded(
+                      child: new Text('Whatsapp for Tech Services & Projects',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: fontFamily1,
+                              fontWeight: FontWeight.w400,
+                              color: myBlack3)),
+                    ),
                   ],
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:webapp/home_page.dart';
 import 'package:webapp/misc/blink_button.dart';
 import 'package:webapp/misc/pop-up.dart';
@@ -79,123 +80,126 @@ class _PcCustomState extends State<PcCustom> {
             alignment: AlignmentDirectional.topStart,
             children: [
               SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: ResponsiveWidget.isSmallScreen(context)
-                          ? 0
-                          : height * 0.14,
-                    ),
-                    Container(
-                      width: width,
-                      child: Stack(
-                        alignment: AlignmentDirectional.center,
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        // mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            "GET PC CUSTOMIZED FOR - ",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: ResponsiveWidget.isSmallScreen(context)
-                                  ? 20
-                                  : width * 0.033,
-                              fontFamily: fontFamily2,
-                            ),
-                          ),
-                          /*   Container(
-                            height: height * 0.4,
-                            child: DefaultTextStyle(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: ResponsiveWidget.isSmallScreen(context)
+                            ? 0
+                            : height * 0.14,
+                      ),
+                      Container(
+                        width: width,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              "GET PC CUSTOMIZED FOR - ",
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize:
-                                      ResponsiveWidget.isSmallScreen(context)
-                                          ? 40
-                                          : width * 0.055,
-                                  letterSpacing: 1,
-                                  fontFamily: fontFamily2,
-                                  fontWeight: FontWeight.bold),
-                              child: Padding(
-                                padding: EdgeInsets.only(top: height * 0.1),
-                                child: AnimatedTextKit(
-                                    pause: const Duration(milliseconds: 1000),
-                                    isRepeatingAnimation: true,
-                                    repeatForever: true,
-                                    animatedTexts: [
-                                      RotateAnimatedText(
-                                        '\nGAMING',
-                                        // speed: const Duration(milliseconds: 200),
-                                      ),
-                                      RotateAnimatedText(
-                                        '\nOFFICE',
-                                        //   speed: const Duration(milliseconds: 200),
-                                      ),
-                                      RotateAnimatedText(
-                                        '\nWORK FROM HOME',
-                                        //  speed: const Duration(milliseconds: 200),
-                                      ),
-                                      RotateAnimatedText(
-                                        '\nPROFESSION',
-                                        //  speed: const Duration(milliseconds: 200),
-                                      ),
-                                    ]),
+                                color: Colors.white,
+                                fontSize:
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? 20
+                                        : width * 0.033,
+                                fontFamily: fontFamily2,
                               ),
                             ),
-                          ),*/
-                        ],
+                            /*   Container(
+                              height: height * 0.4,
+                              child: DefaultTextStyle(
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        ResponsiveWidget.isSmallScreen(context)
+                                            ? 40
+                                            : width * 0.055,
+                                    letterSpacing: 1,
+                                    fontFamily: fontFamily2,
+                                    fontWeight: FontWeight.bold),
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: height * 0.1),
+                                  child: AnimatedTextKit(
+                                      pause: const Duration(milliseconds: 1000),
+                                      isRepeatingAnimation: true,
+                                      repeatForever: true,
+                                      animatedTexts: [
+                                        RotateAnimatedText(
+                                          '\nGAMING',
+                                          // speed: const Duration(milliseconds: 200),
+                                        ),
+                                        RotateAnimatedText(
+                                          '\nOFFICE',
+                                          //   speed: const Duration(milliseconds: 200),
+                                        ),
+                                        RotateAnimatedText(
+                                          '\nWORK FROM HOME',
+                                          //  speed: const Duration(milliseconds: 200),
+                                        ),
+                                        RotateAnimatedText(
+                                          '\nPROFESSION',
+                                          //  speed: const Duration(milliseconds: 200),
+                                        ),
+                                      ]),
+                                ),
+                              ),
+                            ),*/
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: ResponsiveWidget.isSmallScreen(context)
-                          ? 0
-                          : height * 0.16,
-                    ),
-                    Container(
-                      width: width,
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              top: height * 0.03125,
-                              left: ResponsiveWidget.isSmallScreen(context)
-                                  ? 55
-                                  : width * 0.0725,
-                              bottom: height * 0.03125,
-                              right: ResponsiveWidget.isSmallScreen(context)
-                                  ? 55
-                                  : width * 0.0725),
-                          child: Column(
-                            children: [
-                              /* AnimatedTextKit(
-                                animatedTexts: [
-                                  ColorizeAnimatedText(
-                                    "Buying a pc is overrated nowadays. At TechNEXI, we understand the importance of building the perfect PC. To cater to that, we offer the most extensive range of components and specifications on the system build market. Our collection of custom PC’s, Gaming setups all are customizable to suit your unique preferences, whilst maintaining an expert level of value and quality, regardless of budget.",
-                                    textAlign: TextAlign.center,
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: 2,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: fontFamily2,
-                                        fontSize:
-                                            ResponsiveWidget.isSmallScreen(
-                                                    context)
-                                                ? 14
-                                                : width * 0.016),
-                                    colors: colorizeColors,
-                                    // speed: Duration(milliseconds: 600)
-                                  ),
-                                ],
-                                totalRepeatCount: 500000,
-                                repeatForever: true,
-                                isRepeatingAnimation: true,
-                              ),*/
-                            ],
+                      SizedBox(
+                        height: ResponsiveWidget.isSmallScreen(context)
+                            ? 0
+                            : height * 0.16,
+                      ),
+                      Container(
+                        width: width,
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: height * 0.03125,
+                                left: ResponsiveWidget.isSmallScreen(context)
+                                    ? 55
+                                    : width * 0.0725,
+                                bottom: height * 0.03125,
+                                right: ResponsiveWidget.isSmallScreen(context)
+                                    ? 55
+                                    : width * 0.0725),
+                            child: Column(
+                              children: [
+                                /* AnimatedTextKit(
+                                  animatedTexts: [
+                                    ColorizeAnimatedText(
+                                      "Buying a pc is overrated nowadays. At TechNEXI, we understand the importance of building the perfect PC. To cater to that, we offer the most extensive range of components and specifications on the system build market. Our collection of custom PC’s, Gaming setups all are customizable to suit your unique preferences, whilst maintaining an expert level of value and quality, regardless of budget.",
+                                      textAlign: TextAlign.center,
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          letterSpacing: 2,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: fontFamily2,
+                                          fontSize:
+                                              ResponsiveWidget.isSmallScreen(
+                                                      context)
+                                                  ? 14
+                                                  : width * 0.016),
+                                      colors: colorizeColors,
+                                      // speed: Duration(milliseconds: 600)
+                                    ),
+                                  ],
+                                  totalRepeatCount: 500000,
+                                  repeatForever: true,
+                                  isRepeatingAnimation: true,
+                                ),*/
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
+                      Padding(
                         padding: EdgeInsets.only(
                           left: width * 0.1,
                           right: width * 0.1,
@@ -207,6 +211,7 @@ class _PcCustomState extends State<PcCustom> {
                           children: [
                             Text(
                               "WHY CHOOSE US",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize:
@@ -241,6 +246,7 @@ class _PcCustomState extends State<PcCustom> {
                                                   context)
                                               ? 70
                                               : width * 0.05,
+                                          color: Colors.white,
                                         ),
                                         Text(
                                           "\nTWO YEAR ONSITE WARRENTY",
@@ -265,6 +271,7 @@ class _PcCustomState extends State<PcCustom> {
                                                   context)
                                               ? 70
                                               : width * 0.05,
+                                          color: Colors.white,
                                         ),
                                         Text(
                                           "\n48 HRS STRESS TESTING PER PC",
@@ -289,6 +296,7 @@ class _PcCustomState extends State<PcCustom> {
                                                   context)
                                               ? 70
                                               : width * 0.05,
+                                          color: Colors.white,
                                         ),
                                         Text(
                                           "\nNATIONAL SHIPPING",
@@ -313,6 +321,7 @@ class _PcCustomState extends State<PcCustom> {
                                                   context)
                                               ? 70
                                               : width * 0.05,
+                                          color: Colors.white,
                                         ),
                                         Text(
                                           "\nLIFETIME TECHNICAL SUPPORT",
@@ -333,59 +342,58 @@ class _PcCustomState extends State<PcCustom> {
                               ),
                             )
                           ],
-                        )),
-                    Container(
-                      width: width,
-                      color: Colors.black12,
-                      height: ResponsiveWidget.isSmallScreen(context)
-                          ? 55
-                          : height * 0.07,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            onPressed: null,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "SIGN UP",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      letterSpacing: 2,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: fontFamily2,
-                                      fontSize: ResponsiveWidget.isSmallScreen(
-                                              context)
-                                          ? 14
-                                          : width * 0.01),
-                                ),
-                                Text(
-                                  " FOR BEST DEALS",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      letterSpacing: 2,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: fontFamily2,
-                                      fontSize: ResponsiveWidget.isSmallScreen(
-                                              context)
-                                          ? 14
-                                          : width * 0.01),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Divider(
-                                color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        width: width,
+                        color: Colors.black12,
+                        height: ResponsiveWidget.isSmallScreen(context)
+                            ? 55
+                            : height * 0.07,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              onPressed: null,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "SIGN UP",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        letterSpacing: 2,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: fontFamily2,
+                                        fontSize:
+                                            ResponsiveWidget.isSmallScreen(
+                                                    context)
+                                                ? 14
+                                                : width * 0.01),
+                                  ),
+                                  Text(
+                                    " FOR BEST DEALS",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: 2,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: fontFamily2,
+                                        fontSize:
+                                            ResponsiveWidget.isSmallScreen(
+                                                    context)
+                                                ? 14
+                                                : width * 0.01),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                '2021 Copyright © TechNEXI | All rights reserved.',
+                            ),
+                            Expanded(
+                              child: Text(
+                                '2021 Copyright © TechNEXI | All rights reserved.\n',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: Colors.white,
                                     letterSpacing: 2,
@@ -396,14 +404,14 @@ class _PcCustomState extends State<PcCustom> {
                                             ? 14
                                             : width * 0.01),
                               ),
-                            ],
-                          ),
-                        ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
 
-                    ///////////
-                  ],
+                      ///////////
+                    ],
+                  ),
                 ),
               ),
               Container(
@@ -464,247 +472,258 @@ class _PcCustomState extends State<PcCustom> {
                             child: Text(
                               "CHOOSE YOUR REQUIREMENT",
                               style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 20
+                                          : 24,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? FontWeight.w600
+                                          : FontWeight.bold),
                             ),
                           ),
                           SizedBox(height: 20),
                           ResponsiveWidget.isSmallScreen(context)
-                              ? Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        //add widget here
-                                        PopUpItem(title: "WorkStation"),
-                                        PopUpItem(title: "Professional"),
-                                        PopUpItem(title: "Business"),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        PopUpItem(
-                                          title: "Gaming",
-                                          childBeforeSlider: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                                border: Border.all(
-                                                    width: 2,
-                                                    color: Colors.white70)),
-                                            child: ListTile(
-                                              title: Text(
-                                                "RAM",
-                                                style: TextStyle(
-                                                  color: Colors.white54,
-                                                  fontSize: ResponsiveWidget
-                                                          .isSmallScreen(
-                                                              context)
-                                                      ? 15
-                                                      : 18,
+                              ? Padding(
+                                  padding: const EdgeInsets.all(25.0),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          //add widget here
+                                          PopUpItem(title: "WorkStation"),
+                                          PopUpItem(title: "Professional"),
+                                          PopUpItem(title: "Business"),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          PopUpItem(
+                                            title: "Gaming",
+                                            childBeforeSlider: Container(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                  border: Border.all(
+                                                      width: 2,
+                                                      color: Colors.white70)),
+                                              child: ListTile(
+                                                title: Text(
+                                                  "RAM",
+                                                  style: TextStyle(
+                                                    color: Colors.white54,
+                                                    fontSize: ResponsiveWidget
+                                                            .isSmallScreen(
+                                                                context)
+                                                        ? 15
+                                                        : 18,
+                                                  ),
                                                 ),
-                                              ),
-                                              trailing: Wrap(
-                                                alignment: WrapAlignment.center,
-                                                children: [
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        selected4 = true;
-                                                        selected8 = false;
-                                                        selected16 = false;
-                                                        selected32 = false;
-                                                      });
-                                                    },
-                                                    child: Container(
+                                                trailing: Wrap(
+                                                  alignment:
+                                                      WrapAlignment.center,
+                                                  children: [
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          selected4 = true;
+                                                          selected8 = false;
+                                                          selected16 = false;
+                                                          selected32 = false;
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                          width: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 42
+                                                              : width * 0.1,
+                                                          height: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 28
+                                                              : height * 0.032,
+                                                          decoration: BoxDecoration(
+                                                              color: selected4
+                                                                  ? Colors.green[
+                                                                      300]
+                                                                  : Colors
+                                                                      .white54,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                          child: Center(
+                                                            child: Text(
+                                                              "4GB",
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 15,
+                                                              ),
+                                                            ),
+                                                          )),
+                                                    ),
+                                                    SizedBox(
                                                         width: ResponsiveWidget
                                                                 .isSmallScreen(
                                                                     context)
-                                                            ? 42
-                                                            : width * 0.1,
-                                                        height: ResponsiveWidget
-                                                                .isSmallScreen(
-                                                                    context)
-                                                            ? 28
-                                                            : height * 0.032,
-                                                        decoration: BoxDecoration(
-                                                            color: selected4
-                                                                ? Colors
-                                                                    .green[300]
-                                                                : Colors
-                                                                    .white54,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
-                                                        child: Center(
-                                                          child: Text(
-                                                            "4GB",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 15,
+                                                            ? 0
+                                                            : 5),
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          selected4 = false;
+                                                          selected8 = true;
+                                                          selected16 = false;
+                                                          selected32 = false;
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                          decoration: BoxDecoration(
+                                                              color: selected8
+                                                                  ? Colors.green[
+                                                                      300]
+                                                                  : Colors
+                                                                      .white54,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                          width: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 42
+                                                              : width * 0.06,
+                                                          height: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 28
+                                                              : height * 0.032,
+                                                          child: Center(
+                                                            child: Text(
+                                                              "8GB",
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 15,
+                                                              ),
                                                             ),
-                                                          ),
-                                                        )),
-                                                  ),
-                                                  SizedBox(
-                                                      width: ResponsiveWidget
-                                                              .isSmallScreen(
-                                                                  context)
-                                                          ? 0
-                                                          : 5),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        selected4 = false;
-                                                        selected8 = true;
-                                                        selected16 = false;
-                                                        selected32 = false;
-                                                      });
-                                                    },
-                                                    child: Container(
-                                                        decoration: BoxDecoration(
-                                                            color: selected8
-                                                                ? Colors
-                                                                    .green[300]
-                                                                : Colors
-                                                                    .white54,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
+                                                          )),
+                                                    ),
+                                                    SizedBox(
                                                         width: ResponsiveWidget
                                                                 .isSmallScreen(
                                                                     context)
-                                                            ? 42
-                                                            : width * 0.06,
-                                                        height: ResponsiveWidget
-                                                                .isSmallScreen(
-                                                                    context)
-                                                            ? 28
-                                                            : height * 0.032,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "8GB",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 15,
+                                                            ? 0
+                                                            : 5),
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          selected4 = false;
+                                                          selected8 = false;
+                                                          selected16 = true;
+                                                          selected32 = false;
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                          decoration: BoxDecoration(
+                                                              color: selected16
+                                                                  ? Colors.green[
+                                                                      300]
+                                                                  : Colors
+                                                                      .white54,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                          width: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 42
+                                                              : width * 0.06,
+                                                          height: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 28
+                                                              : height * 0.032,
+                                                          child: Center(
+                                                            child: Text(
+                                                              "16GB",
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 15,
+                                                              ),
                                                             ),
-                                                          ),
-                                                        )),
-                                                  ),
-                                                  SizedBox(
-                                                      width: ResponsiveWidget
-                                                              .isSmallScreen(
-                                                                  context)
-                                                          ? 0
-                                                          : 5),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        selected4 = false;
-                                                        selected8 = false;
-                                                        selected16 = true;
-                                                        selected32 = false;
-                                                      });
-                                                    },
-                                                    child: Container(
-                                                        decoration: BoxDecoration(
-                                                            color: selected16
-                                                                ? Colors
-                                                                    .green[300]
-                                                                : Colors
-                                                                    .white54,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
+                                                          )),
+                                                    ),
+                                                    SizedBox(
                                                         width: ResponsiveWidget
                                                                 .isSmallScreen(
                                                                     context)
-                                                            ? 42
-                                                            : width * 0.06,
-                                                        height: ResponsiveWidget
-                                                                .isSmallScreen(
-                                                                    context)
-                                                            ? 28
-                                                            : height * 0.032,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "16GB",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 15,
+                                                            ? 0
+                                                            : 5),
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          selected4 = false;
+                                                          selected8 = false;
+                                                          selected16 = false;
+                                                          selected32 = true;
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                          decoration: BoxDecoration(
+                                                              color: selected32
+                                                                  ? Colors.green[
+                                                                      300]
+                                                                  : Colors
+                                                                      .white54,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                          width: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 42
+                                                              : width * 0.06,
+                                                          height: ResponsiveWidget
+                                                                  .isSmallScreen(
+                                                                      context)
+                                                              ? 28
+                                                              : height * 0.032,
+                                                          child: Center(
+                                                            child: Text(
+                                                              "32GB",
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 15,
+                                                              ),
                                                             ),
-                                                          ),
-                                                        )),
-                                                  ),
-                                                  SizedBox(
-                                                      width: ResponsiveWidget
-                                                              .isSmallScreen(
-                                                                  context)
-                                                          ? 0
-                                                          : 5),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        selected4 = false;
-                                                        selected8 = false;
-                                                        selected16 = false;
-                                                        selected32 = true;
-                                                      });
-                                                    },
-                                                    child: Container(
-                                                        decoration: BoxDecoration(
-                                                            color: selected32
-                                                                ? Colors
-                                                                    .green[300]
-                                                                : Colors
-                                                                    .white54,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
-                                                        width: ResponsiveWidget
-                                                                .isSmallScreen(
-                                                                    context)
-                                                            ? 42
-                                                            : width * 0.06,
-                                                        height: ResponsiveWidget
-                                                                .isSmallScreen(
-                                                                    context)
-                                                            ? 28
-                                                            : height * 0.032,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "32GB",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 15,
-                                                            ),
-                                                          ),
-                                                        )),
-                                                  ),
-                                                ],
+                                                          )),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        PopUpItem(title: "Student"),
-                                        PopUpItem(title: "All In One")
-                                      ],
-                                    ),
-                                  ],
+                                          PopUpItem(title: "Student"),
+                                          PopUpItem(title: "All In One")
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 )
                               : Row(
                                   mainAxisAlignment:
@@ -951,7 +970,7 @@ class _PcCustomState extends State<PcCustom> {
                         : width * 0.045,
                     color: Colors.white10,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                      padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -969,8 +988,9 @@ class _PcCustomState extends State<PcCustom> {
                             },
                           )),
                           Column(
+                            mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               IconButton(
                                   color: Colors.white,
@@ -988,7 +1008,7 @@ class _PcCustomState extends State<PcCustom> {
                                 color: Colors.white,
                                 iconSize:
                                     ResponsiveWidget.isSmallScreen(context)
-                                        ? 30
+                                        ? 28
                                         : width * 0.02,
                                 icon: Icon(Icons.email),
                                 onPressed: () async {
@@ -1008,7 +1028,7 @@ class _PcCustomState extends State<PcCustom> {
                                 color: Colors.white,
                                 iconSize:
                                     ResponsiveWidget.isSmallScreen(context)
-                                        ? 30
+                                        ? 28
                                         : width * 0.02,
                                 // Use the MdiIcons class for the IconData
                                 icon: new Icon(MdiIcons.whatsapp),
@@ -1028,7 +1048,7 @@ class _PcCustomState extends State<PcCustom> {
                                   color: Colors.white,
                                   iconSize:
                                       ResponsiveWidget.isSmallScreen(context)
-                                          ? 30
+                                          ? 28
                                           : width * 0.02,
                                   icon: new Icon(MdiIcons.instagram),
                                   onPressed: () {
