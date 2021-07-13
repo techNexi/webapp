@@ -59,7 +59,7 @@ class _HoverImageState extends State<HoverImage>
         ),
         child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(1.0),
             ),
             clipBehavior: Clip.hardEdge,
             transform: Matrix4(_animation.value, 0, 0, 0, 0, _animation.value,

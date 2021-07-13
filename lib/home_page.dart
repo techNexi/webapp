@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:webapp/misc/hover.dart';
+import 'package:webapp/services/Custom-Pc/custom_pc.dart';
+import 'package:webapp/services/System-Services/system_service.dart';
 import 'package:webapp/theme.dart';
 import 'package:webapp/web_scrollbar.dart';
 import 'package:webapp/drawer_small.dart';
@@ -54,14 +56,13 @@ class _HomePageState extends State<HomePage> {
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
               iconTheme: IconThemeData(color: myWhite3),
-              backgroundColor:
-                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+              backgroundColor: myBlack3.withOpacity(_opacity),
               elevation: _opacity,
               centerTitle: true,
               title: Text(
                 'TechNEXI',
                 style: TextStyle(
-                  color: myWhite1,
+                  color: myWhite3,
                   fontSize: 18,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w600,
@@ -100,7 +101,10 @@ class _HomePageState extends State<HomePage> {
                   letterSpacing: 3,
                 ),
               ),
-              SizedBox(height: height * 0.2),
+              SizedBox(
+                  height: ResponsiveWidget.isSmallScreen(context)
+                      ? 120
+                      : height * 0.2),
               Padding(
                 padding: EdgeInsets.only(left: width * 0.1),
                 child: Align(
@@ -136,7 +140,10 @@ class _HomePageState extends State<HomePage> {
                             letterSpacing: 2,
                           ),
                         ),
-                        SizedBox(height: height * 0.2),
+                        SizedBox(
+                            height: ResponsiveWidget.isSmallScreen(context)
+                                ? 70
+                                : height * 0.2),
                         Text(
                           'Services we offer'.toLowerCase(),
                           style: TextStyle(
@@ -170,51 +177,30 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    bottom: height / 8,
-                    top: height / 8,
+                    bottom: ResponsiveWidget.isSmallScreen(context)
+                        ? 40
+                        : height / 8,
+                    top: ResponsiveWidget.isSmallScreen(context)
+                        ? 30
+                        : height / 8,
                     left: width / 20.0,
                     right: width / 20),
                 child: Wrap(
-                    runSpacing: height / 8,
+                    runSpacing: ResponsiveWidget.isSmallScreen(context)
+                        ? 10
+                        : height / 8,
                     spacing: 10,
-                    crossAxisAlignment: WrapCrossAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.end,
                     alignment: WrapAlignment.spaceAround,
                     children: [
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            height: height / 2.3,
-                            child: Padding(
-                              padding: const EdgeInsets.all(38.0),
-                              child: HoverImage(
-                                child: Image.asset(
-                                  "assets/images/service/web.png",
-                                  fit: BoxFit.fitWidth,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "Web Development",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: myWhite3,
-                              fontSize: ResponsiveWidget.isSmallScreen(context)
-                                  ? 20
-                                  : 40,
-                              fontFamily: fontFamily2,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: height / 2,
+                            height: ResponsiveWidget.isSmallScreen(context)
+                                ? 220
+                                : height / 2,
                             child: Padding(
                               padding: const EdgeInsets.all(38.0),
                               child: HoverImage(
@@ -240,6 +226,58 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
+                      TextButton(
+                        style: ButtonStyle(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                                  (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.focused))
+                              return myBlack4;
+                            if (states.contains(MaterialState.hovered))
+                              return myBlack4;
+                            return null; // Defer to the widget's default.
+                          }),
+                        ),
+                        autofocus: false,
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => HomePage()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: ResponsiveWidget.isSmallScreen(context)
+                                  ? 250
+                                  : height / 2.3,
+                              child: Padding(
+                                padding: const EdgeInsets.all(38.0),
+                                child: HoverImage(
+                                  child: Image.asset(
+                                    "assets/images/service/web.png",
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "Web Development",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: myWhite3,
+                                fontSize:
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? 20
+                                        : 40,
+                                fontFamily: fontFamily2,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ]),
               ),
               Padding(
@@ -252,88 +290,141 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    bottom: height / 8,
-                    top: height / 12,
+                    bottom: ResponsiveWidget.isSmallScreen(context)
+                        ? 18
+                        : height / 8,
+                    top: ResponsiveWidget.isSmallScreen(context)
+                        ? 14
+                        : height / 12,
                     left: width / 20.0,
                     right: width / 20),
                 child: Wrap(
-                    runSpacing: height / 9,
+                    runSpacing: ResponsiveWidget.isSmallScreen(context)
+                        ? 18
+                        : height / 9,
                     spacing: width / 7,
-                    crossAxisAlignment: WrapCrossAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.end,
                     alignment: WrapAlignment.spaceAround,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            /*  decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25.0),
-                                gradient: new LinearGradient(
-                                    colors: [Color(0x55fefefe), myBlack4],
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    stops: [0.0, 1.0],
-                                    tileMode: TileMode.clamp),
-                              ),*/
-                            width: width / 4.2,
-                            child: Padding(
-                              padding: const EdgeInsets.all(38.0),
-                              child: HoverImage(
-                                child: Image.asset(
-                                  "assets/images/service/cpu.png",
+                      TextButton(
+                        style: ButtonStyle(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                                  (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.focused))
+                              return myBlack4;
+                            if (states.contains(MaterialState.hovered))
+                              return myBlack4;
+                            return null; // Defer to the widget's default.
+                          }),
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => PcCustom()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              /*  decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25.0),
+                                  gradient: new LinearGradient(
+                                      colors: [Color(0x55fefefe), myBlack4],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      stops: [0.0, 1.0],
+                                      tileMode: TileMode.clamp),
+                                ),*/
+                              width: ResponsiveWidget.isSmallScreen(context)
+                                  ? 160
+                                  : width / 4.2,
+                              child: Padding(
+                                padding: const EdgeInsets.all(38.0),
+                                child: HoverImage(
+                                  child: Image.asset(
+                                    "assets/images/service/cpu.png",
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Text(
-                            "PC Customization",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: myWhite3,
-                              fontSize: ResponsiveWidget.isSmallScreen(context)
-                                  ? 20
-                                  : 40,
-                              fontFamily: fontFamily2,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                            Text(
+                              "PC Customization",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: myWhite3,
+                                fontSize:
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? 20
+                                        : 40,
+                                fontFamily: fontFamily2,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 2,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: width / 4.2,
-                            child: Padding(
-                              padding: const EdgeInsets.all(38.0),
-                              child: HoverImage(
-                                child: Image.asset(
-                                  "assets/images/service/mac.png",
+                      TextButton(
+                        style: ButtonStyle(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                                  (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.focused))
+                              return myBlack4;
+                            if (states.contains(MaterialState.hovered))
+                              return myBlack4;
+                            return null; // Defer to the widget's default.
+                          }),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => SysytemServices()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: ResponsiveWidget.isSmallScreen(context)
+                                  ? 160
+                                  : width / 4.2,
+                              child: Padding(
+                                padding: const EdgeInsets.all(38.0),
+                                child: HoverImage(
+                                  child: Image.asset(
+                                    "assets/images/service/mac.png",
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Text(
-                            "System Services",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: myWhite3,
-                              fontSize: ResponsiveWidget.isSmallScreen(context)
-                                  ? 20
-                                  : 40,
-                              fontFamily: fontFamily2,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                            Text(
+                              "System Services",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: myWhite3,
+                                fontSize:
+                                    ResponsiveWidget.isSmallScreen(context)
+                                        ? 20
+                                        : 40,
+                                fontFamily: fontFamily2,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 2,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: width / 4.2,
+                            width: ResponsiveWidget.isSmallScreen(context)
+                                ? 160
+                                : width / 4.2,
                             child: Padding(
                               padding: const EdgeInsets.all(38.0),
                               child: HoverImage(
@@ -359,10 +450,13 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: width / 4.2,
+                            width: ResponsiveWidget.isSmallScreen(context)
+                                ? 160
+                                : width / 4.2,
                             child: Padding(
                               padding: const EdgeInsets.all(38.0),
                               child: HoverImage(
