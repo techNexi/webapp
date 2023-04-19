@@ -349,7 +349,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Text(
-                              "PC Customization",
+                              "Custom PC Build",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: myWhite3,
